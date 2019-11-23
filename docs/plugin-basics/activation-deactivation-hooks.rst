@@ -89,7 +89,7 @@ Using the example from above, the following is how to reverse this
 process and deactivate a plugin:
 
 .. code-block:: php
-
+  :linenos:
    function pluginprefix_deactivation() {
    	// unregister the post type, so the rules are no longer in memory
    	unregister_post_type( 'book' );
