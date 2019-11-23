@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _what-is-a-plugin:
 
 What is a Plugin?
 =================
