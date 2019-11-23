@@ -14,11 +14,8 @@ plugin header comment. Another common, and encouraged, practice is to
 place a license block comment near the top of your main plugin file (the
 same one that has the plugin header comment).
 
-This license block comment usually looks something like this:
+This license block comment usually looks something like this::
 
-.. code-block:: php
-
-  <?php
    /*
    {Plugin Name} is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -34,9 +31,7 @@ This license block comment usually looks something like this:
    along with {Plugin Name}. If not, see {URI to Plugin License}.
    */
 
-When combined with the plugin header comment:
-
-.. code-block:: php
+When combined with the plugin header comment::
   <?php
    /*
    Plugin Name:         WordPress.org Plugin
