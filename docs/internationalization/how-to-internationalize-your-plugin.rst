@@ -11,7 +11,7 @@ functions.
 
 .. _header-n4:
 
-Introduction to Gettext 
+Introduction to Gettext
 ------------------------
 
 WordPress uses the `gettext <http://www.gnu.org/software/gettext/>`__
@@ -26,8 +26,8 @@ manual <http://www.gnu.org/software/gettext/manual/html_node/>`__.
 ↑ <https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#top>`__
 
 .. _header-n7:
-
-Text Domains 
+.. _text-domains:
+Text Domains
 -------------
 
 --------------
@@ -86,8 +86,8 @@ domain <https://developer.wordpress.org/plugins/internationalization/how-to-inte
 ↑ <https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#top>`__
 
 .. _header-n26:
-
-Domain Path 
+.. _domain-path:
+Domain Path
 ------------
 
 --------------
@@ -122,7 +122,7 @@ with the first slash:
 
 .. _header-n36:
 
-Basic strings 
+Basic strings
 --------------
 
 The most commonly used one is ``__()``. It just returns the translation
@@ -150,7 +150,7 @@ you can use the shorter:
 
 .. _header-n44:
 
-Variables 
+Variables
 ----------
 
 If you are using variables in strings like in the example below you
@@ -228,12 +228,12 @@ correctly.
 
 .. _header-n59:
 
-Plurals 
+Plurals
 --------
 
 .. _header-n60:
 
-Basic Pluralization 
+Basic Pluralization
 ~~~~~~~~~~~~~~~~~~~~
 
 If you have string that changes when the number of items changes. In
@@ -275,7 +275,7 @@ corresponding to the given count.
 
 .. _header-n75:
 
-Pluralization done later 
+Pluralization done later
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You first set the plural strings with ``_n_noop()`` or ``_nx_noop()``.
@@ -306,7 +306,7 @@ Then at a later point in the code you can use
 
 .. _header-n81:
 
-Disambiguation by context 
+Disambiguation by context
 --------------------------
 
 Sometimes one term is used in several contexts and although it is one
@@ -368,7 +368,7 @@ It’s also used to explain placeholders in a string like
 
 .. _header-n95:
 
-Newline characters 
+Newline characters
 -------------------
 
 Gettext doesn’t like ``\r`` (ASCII code: 13) in translatable strings, so
@@ -379,7 +379,7 @@ please avoid it and use ``\n`` instead.
 
 .. _header-n98:
 
-Empty strings 
+Empty strings
 --------------
 
 The empty string is reserved for internal Gettext usage and you must not
@@ -395,7 +395,7 @@ system.
 
 .. _header-n102:
 
-Handling JavaScript files 
+Handling JavaScript files
 --------------------------
 
 Use ``wp_localize_script()`` to add translated strings or other
@@ -406,7 +406,7 @@ server-side data to a previously enqueued script.
 
 .. _header-n105:
 
-Escaping strings 
+Escaping strings
 -----------------
 
 It is good to escape all of your strings, this way the translators
@@ -418,7 +418,7 @@ integrated with internationalisation functions.
 
 .. _header-n108:
 
-Localization functions 
+Localization functions
 -----------------------
 
 `Top
@@ -426,7 +426,7 @@ Localization functions
 
 .. _header-n110:
 
-Basic functions 
+Basic functions
 ~~~~~~~~~~~~~~~~
 
 -  `\__() <https://developer.wordpress.org/reference/functions/__/>`__
@@ -452,7 +452,7 @@ Basic functions
 
 .. _header-n131:
 
-Translate & Escape functions 
+Translate & Escape functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Strings that require translation and is used in attributes of html tags
@@ -475,7 +475,7 @@ must be escaped.
 
 .. _header-n147:
 
-Date and number functions 
+Date and number functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `number\ format\ i18n() <https://developer.wordpress.org/reference/functions/number_format_i18n>`__
@@ -487,7 +487,7 @@ Date and number functions
 
 .. _header-n154:
 
-Best Practices for writing strings 
+Best Practices for writing strings
 -----------------------------------
 
 Here are the best practices for writing strings
@@ -548,7 +548,7 @@ Here are the best practices for writing strings
 
 .. _header-n185:
 
-Add Text Domain to strings 
+Add Text Domain to strings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You must add your Text domain as an argument to every ``__()``, ``_e()``
@@ -634,7 +634,7 @@ replaced.
 
 .. _header-n222:
 
-Loading Text Domain 
+Loading Text Domain
 --------------------
 
    | **Note:** After WordPress
