@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _top-level-menus:
 
 Top-Level Menus
 ===============
