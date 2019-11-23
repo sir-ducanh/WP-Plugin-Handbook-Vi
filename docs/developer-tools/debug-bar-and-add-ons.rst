@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _debug-bar-and-add-ons:
 
 Debug Bar and Add-Ons
 =====================
