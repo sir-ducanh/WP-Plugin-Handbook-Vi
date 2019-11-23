@@ -32,6 +32,7 @@ This license block comment usually looks something like this::
    */
 
 When combined with the plugin header comment::
+  
   <?php
    /*
    Plugin Name:         WordPress.org Plugin
