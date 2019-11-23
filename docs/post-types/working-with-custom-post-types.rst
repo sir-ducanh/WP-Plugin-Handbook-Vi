@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _working-with-custom-post-types:
 
 Working with Custom Post Types
 ==============================

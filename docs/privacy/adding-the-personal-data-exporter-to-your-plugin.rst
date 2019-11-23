@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _adding-the-personal-data-exporter-to-your-plugin:
 
 Adding the Personal Data Exporter to Your Plugin
 ================================================

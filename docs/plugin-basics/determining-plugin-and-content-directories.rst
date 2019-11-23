@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _determining-plugin-and-content-directories:
 
 Determining Plugin and Content Directories
 ==========================================

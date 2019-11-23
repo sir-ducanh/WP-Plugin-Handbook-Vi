@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _tinymce-enhanced-shortcodes:
 
 TinyMCE Enhanced Shortcodes
 ===========================

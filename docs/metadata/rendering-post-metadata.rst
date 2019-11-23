@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _rendering-post-metadata:
 
 Rendering Post Metadata
 =======================

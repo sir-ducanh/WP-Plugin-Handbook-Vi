@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _including-a-software-license:
 
 Including a Software License
 ============================

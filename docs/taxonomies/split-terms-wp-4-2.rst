@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _split-terms-wp-4-2:
 
 Split Terms (WP 4.2+)
 =====================

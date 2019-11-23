@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _using-settings-api:
 
 Using Settings API
 ==================
@@ -6,6 +6,7 @@ Using Settings API
 .. contents::
 
 .. _header-n4:
+.. _adding-settings:
 
 Adding Settings
 ---------------

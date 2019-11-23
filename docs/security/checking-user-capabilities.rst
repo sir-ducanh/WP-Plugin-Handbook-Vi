@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _checking-user-capabilities:
 
 Checking User Capabilities
 ==========================

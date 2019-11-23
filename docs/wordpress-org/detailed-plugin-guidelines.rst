@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _detailed-plugin-guidelines:
 
 Detailed Plugin Guidelines
 ==========================

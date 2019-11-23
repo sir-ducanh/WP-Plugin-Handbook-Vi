@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _alerts-and-warnings:
 
 Alerts and Warnings
 ===================

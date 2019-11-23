@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _planning-your-plugin:
 
 Planning, Submitting, and Maintaining Plugins
 =============================================

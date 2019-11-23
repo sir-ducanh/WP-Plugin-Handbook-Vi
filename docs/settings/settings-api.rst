@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _settings-api:
 
 Settings API
 ============

@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _adding-the-personal-data-eraser-to-your-plugin:
 
 Adding the Personal Data Eraser to Your Plugin
 ==============================================

@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _post-types:
 
 Custom Post Types
 =================

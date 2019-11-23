@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _custom-meta-boxes:
 
 Custom Meta Boxes
 =================

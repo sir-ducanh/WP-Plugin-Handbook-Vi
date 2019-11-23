@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _privacy-related-options-hooks-and-capabilities:
 
 Privacy Related Options, Hooks and Capabilities
 ===============================================

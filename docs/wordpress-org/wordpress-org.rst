@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _wordpress-org:
 
 The WordPress.org Plugin Directory
 ==================================

@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _managing-post-metadata:
 
 Managing Post Metadata
 ======================

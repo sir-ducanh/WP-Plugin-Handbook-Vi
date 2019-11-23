@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _how-to-use-subversion:
 
 Using Subversion
 ================

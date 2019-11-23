@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _activation-deactivation-hooks:
 
 Activation / Deactivation Hooks
 ===============================

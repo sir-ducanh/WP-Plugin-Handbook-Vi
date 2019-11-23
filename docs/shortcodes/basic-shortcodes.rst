@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _basic-shortcodes:
 
 Basic Shortcodes
 ================

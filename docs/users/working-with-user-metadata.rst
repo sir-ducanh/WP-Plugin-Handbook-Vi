@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _working-with-user-metadata:
 
 Working with User Metadata
 ==========================

@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _registering-custom-post-types:
 
 Registering Custom Post Types
 =============================

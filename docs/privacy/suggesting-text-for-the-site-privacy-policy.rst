@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _suggesting-text-for-the-site-privacy-policy:
 
 Suggesting text for the site privacy policy
 ===========================================
