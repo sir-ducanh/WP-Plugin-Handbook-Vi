@@ -14,9 +14,7 @@ that a file is a plugin and provides information about the plugin.
 Minimum Fields
 ---------------
 
-At a minimum, a header comment must contain the **Plugin Name**:
-
-.. code-block:: php
+At a minimum, a header comment must contain the **Plugin Name**::
 
    <?php
    /**
@@ -76,9 +74,7 @@ Available header fields:
 -  **Network:** Whether the plugin can only be activated network-wide.
    Can only be set to *true*, and should be left out when not needed.
 
-A valid PHP file with a header comment might look like this:
-
-.. code-block:: php
+A valid PHP file with a header comment might look like this::
 
    <?php
    /**
@@ -100,9 +96,7 @@ You can play with the different header fields using the `Plugin Header
 Generator <https://app.codegenerators.io/59510e630f79a7747d6f3ed164c299d1/>`__.
 
 Here’s another example which allows file-level PHPDoc DocBlock as well
-as WordPress plugin file headers:
-
-.. code-block:: php
+as WordPress plugin file headers::
 
    <?php
    /**
