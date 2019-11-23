@@ -29,9 +29,7 @@ To get started creating a new plugin, follow the steps below.
 5. Create a new PHP file (it’s also good to name this file after your
    plugin, e.g. ``plugin-name.php``).
 
-Here’s what the process looks like on the Unix command line:
-
-.. code-block:: console
+Here’s what the process looks like on the Unix command line::
 
    wordpress$ cd wp-content
    wp-content$ cd plugins
@@ -53,7 +51,7 @@ Only **one file** in the plugin’s folder should have the header comment
 — if the plugin has multiple PHP files, only one of those files should
 have the header comment.
 
-.. code-block:: php
+::
 
    <?php
    /**
