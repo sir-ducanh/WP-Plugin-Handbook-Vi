@@ -42,7 +42,7 @@ PHP file. The `Hello
 Dolly <https://wordpress.org/plugins/hello-dolly/>`__ plugin is an
 example of such a plugin. The plugin PHP file just needs a :ref:`Plugin
 Header <header-requirements>`,
-a couple of PHP functions, and some :ref:`hooks <hooks>` to attach
+a couple of PHP functions, and some ::ref:`hooks <hooks>` to attach
 your functions to.
 
 Plugins allow you to greatly extend the functionality of WordPress
