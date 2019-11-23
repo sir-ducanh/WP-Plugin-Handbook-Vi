@@ -26,7 +26,7 @@ Scenario                                                                        
 ============================================================================================================ ================= ==============
 Flush Cache/Temp                                                                                             Yes               No
 Flush Permalinks                                                                                             Yes               No
-Remove Options from {$:ref:`wpdb <https://developer.wordpress.org/reference/classes/wpdb/>`->prefix}_options No                Yes
+Remove Options from {$wpdb->prefix}_options                                                                  No                Yes
 Remove Tables from `wpdb <https://developer.wordpress.org/reference/classes/wpdb/>`__                        No                Yes
 ============================================================================================================ ================= ==============
 
@@ -41,6 +41,7 @@ function:
 
 .. code-block:: php
 
+  <?php
   register_uninstall_hook(__FILE__, 'pluginprefix_function_to_run');
 
 :ref:`Top ↑ <uninstall-methods>`
