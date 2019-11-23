@@ -40,7 +40,7 @@ to many of your plugin-related questions right here.
 8. Sections 15-17 will introduce you to :ref:`internationalizing <internationalization>`
    your plugin, preparing it for :ref:`release on
    WordPress.org <wordpress-org>`,
-   and some ref:`developer
+   and some :ref:`developer
    tools <developer-tools>`
    you might find useful.
 
