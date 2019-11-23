@@ -17,6 +17,7 @@ as cache and temp files and directories.
 .. warning::
    The deactivation hook is sometimes confused with the :ref:`uninstall
    hook <uninstall-methods>`.
+
    The uninstall hook is best suited to **delete all data permanently**
    such as deleting plugin options and custom tables, etc.
 
@@ -27,9 +28,7 @@ Activation
 
 To set up an activation hook, use the
 `register_activation_hook() <https://developer.wordpress.org/reference/functions/register_activation_hook/>`__
-function:
-
-.. code-block:: php
+function::
 
    register_activation_hook( __FILE__, 'pluginprefix_function_to_run' );
 
@@ -40,9 +39,7 @@ Deactivation
 
 To set up a deactivation hook, use the
 `register_deactivation_hook() <https://developer.wordpress.org/reference/functions/register_deactivation_hook/>`__
-function:
-
-.. code-block:: php
+function::
 
    register_deactivation_hook( __FILE__, 'pluginprefix_function_to_run' );
 
@@ -62,9 +59,7 @@ One of the most common uses for an activation hook is to refresh
 WordPress permalinks when a plugin registers a custom post type. This
 gets rid of the nasty 404 errors.
 
-Let’s look at an example of how to do this:
-
-.. code-block:: php
+Let’s look at an example of how to do this::
 
    function pluginprefix_setup_post_type() {
    	// register the "book" custom post type
@@ -86,10 +81,8 @@ this will be covered later. This example is used simply because it’s
 very common.
 
 Using the example from above, the following is how to reverse this
-process and deactivate a plugin:
-
-.. code-block:: php
-  :linenos:
+process and deactivate a plugin::
+  
    function pluginprefix_deactivation() {
    	// unregister the post type, so the rules are no longer in memory
    	unregister_post_type( 'book' );
