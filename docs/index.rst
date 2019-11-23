@@ -12,7 +12,7 @@ an experienced plugin developer, you should be able to find the answer
 to many of your plugin-related questions right here.
 
 1. If you’re new to plugin development, start by reading the
-   `introduction <https://developer.wordpress.org/plugin/intro/>`__ and
+   `introduction <intro/intro>`__ and
    then move on to `the
    basics <https://developer.wordpress.org/plugins/plugin-basics/>`__.
 
