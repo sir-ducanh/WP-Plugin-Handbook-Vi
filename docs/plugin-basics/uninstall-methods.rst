@@ -26,8 +26,8 @@ Scenario                                                                        
 ========================================================================================================= ================= ==============
 Flush Cache/Temp                                                                                          Yes               No
 Flush Permalinks                                                                                          Yes               No
-Remove Options from {$:ref:`wpdb <https://developer.wordpress.org/reference/classes/wpdb/>`->prefix}_options No                Yes
-Remove Tables from :ref:`wpdb <https://developer.wordpress.org/reference/classes/wpdb/>`                     No                Yes
+Remove Options from {$`wpdb <https://developer.wordpress.org/reference/classes/wpdb/>`__->prefix}_options No                Yes
+Remove Tables from `wpdb <https://developer.wordpress.org/reference/classes/wpdb/>`__                     No                Yes
 ========================================================================================================= ================= ==============
 
 .. _header-n29:
@@ -58,10 +58,10 @@ For example: ``/plugin-name/uninstall.php``
 
 .. warning::
 
-	   When using ``uninstall.php``, before executing, the plugin should always check for the constant ``WP_UNINSTALL_PLUGIN`` to prevent direct access.
-     The constant will be defined by WordPress during the uninstall.php invocation.
-     The constant is **NOT** defined when uninstall is performed by
-     `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
+	When using ``uninstall.php``, before executing, the plugin should always check for the constant ``WP_UNINSTALL_PLUGIN`` to prevent direct access.
+  The constant will be defined by WordPress during the uninstall.php invocation.
+  The constant is **NOT** defined when uninstall is performed by
+  `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
 
 Here is an example deleting option entries and dropping a database
 table:
