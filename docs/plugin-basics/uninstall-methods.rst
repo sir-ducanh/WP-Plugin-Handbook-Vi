@@ -37,12 +37,8 @@ Method 1: register_uninstall_hook
 
 To set up an uninstall hook, use the
 `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__
-function:
+function::
 
-.. code-block:: php
-  :lineos:
-
-  <?php
   register_uninstall_hook(__FILE__, 'pluginprefix_function_to_run');
 
 :ref:`Top ↑ <uninstall-methods>`
