@@ -32,9 +32,7 @@ If your plugin includes JavaScript files, CSS files or other external
 files, then it’s likely you’ll need the URL to these files so you can
 load them into the page. To do this you should use the
 `plugins_url() <https://developer.wordpress.org/reference/functions/plugins_url/>`__
-function like so:
-
-.. code:: php
+function like so::
 
    plugins_url( 'myscript.js', _FILE_ );
 
@@ -62,10 +60,8 @@ information on their use.
 
 .. _header-n15:
 
-Plugins 
-~~~~~~~~
-
-.. code:: php
+Plugins
+~~~~~~~~::
 
    plugins_url()
    plugin_dir_url()
@@ -77,10 +73,8 @@ Plugins
 
 .. _header-n18:
 
-Themes 
-~~~~~~~
-
-.. code:: php
+Themes
+~~~~~~~::
 
    get_template_directory_uri()
    get_stylesheet_directory_uri()
@@ -96,10 +90,8 @@ Themes
 
 .. _header-n21:
 
-Site Home 
-~~~~~~~~~~
-
-.. code:: php
+Site Home
+~~~~~~~~~~::
 
    home_url()
    get_home_path()
@@ -109,10 +101,8 @@ Site Home
 
 .. _header-n24:
 
-WordPress 
-~~~~~~~~~~
-
-.. code:: php
+WordPress
+~~~~~~~~~~::
 
    admin_url()
    site_url()
@@ -125,10 +115,8 @@ WordPress
 
 .. _header-n27:
 
-Multisite 
-~~~~~~~~~~
-
-.. code:: php
+Multisite
+~~~~~~~~~~::
 
    get_admin_url()
    get_home_url()
@@ -142,17 +130,17 @@ Multisite
 
 .. _header-n30:
 
-Constants 
+Constants
 ----------
 
 WordPress makes use of the following constants when determining the path
 to the content and plugin directories. These should not be used directly
 by plugins or themes, but are listed here for completeness.
 
-.. code:: php
+::
 
    WP_CONTENT_DIR  // no trailing slash, full paths only
-   WP_CONTENT_URL  // full url 
+   WP_CONTENT_URL  // full url
    WP_PLUGIN_DIR  // full path, no trailing slash
    WP_PLUGIN_URL  // full url, no trailing slash
    // Available per default in MS, not set in single site install
@@ -164,13 +152,13 @@ by plugins or themes, but are listed here for completeness.
 
 .. _header-n34:
 
-Related 
+Related
 --------
 
 **\\\ WordPress Directories\***\ \*:
 
 ========================================================================================== ======================================= ========================================================================================
-**\\\ WordPress Directories\***\ \*:                                                                                              
+**\\\ WordPress Directories\***\ \*:
 ========================================================================================== ======================================= ========================================================================================
 `home_url() <https://developer.wordpress.org/reference/functions/home_url/>`__             Home URL                                `http://www.example.com <http://www.example.com/>`__
 `site_url() <https://developer.wordpress.org/reference/functions/site_url/>`__             Site directory URL                      `http://www.example.com <http://www.example.com/>`__ or http://www.example.com/wordpress
