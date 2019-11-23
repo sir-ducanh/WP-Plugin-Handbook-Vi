@@ -6,6 +6,8 @@ from datetime import datetime
 
 from recommonmark.parser import CommonMarkParser
 
+import sphinx_rtd_theme
+
 extensions = ['sphinx_rtd_theme']
 templates_path = ['templates', '_templates', '.templates']
 source_suffix = ['.rst', '.md']
