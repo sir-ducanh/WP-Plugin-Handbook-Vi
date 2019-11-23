@@ -46,8 +46,7 @@ Now that you’re editing your new plugin’s PHP file, you’ll need to add a
 **plugin header comment**. This is a specially formatted PHP block
 comment that contains metadata about the plugin, such as its name,
 author, version, license, etc. The plugin header comment must comply
-with the `header
-requirements <https://developer.wordpress.org/plugins/the-basics/header-requirements/>`__,
+with the ::ref:`header requirements <header-requirements>`,
 and at the very least, contain the **name** of the plugin.
 
 Only **one file** in the plugin’s folder should have the header comment
@@ -60,6 +59,7 @@ have the header comment.
    /**
     * Plugin Name: YOUR PLUGIN NAME
     */
+
 
 After you save the file, you should be able to see your plugin listed in
 your WordPress site. Log in to your WordPress site, and click
