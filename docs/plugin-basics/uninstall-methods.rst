@@ -64,11 +64,7 @@ For example: ``/plugin-name/uninstall.php``
   `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
 
 Here is an example deleting option entries and dropping a database
-table:
-
-.. code-block:: php
-
-  <?php
+table::
 
    // if uninstall.php is not called by WordPress, die
    if (!defined('WP_UNINSTALL_PLUGIN')) {
