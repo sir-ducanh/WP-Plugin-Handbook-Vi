@@ -40,10 +40,9 @@ WordPress plugins can be as simple or as complicated as you need them to
 be, depending on what you want to do. The simplest plugin is a single
 PHP file. The `Hello
 Dolly <https://wordpress.org/plugins/hello-dolly/>`__ plugin is an
-example of such a plugin. The plugin PHP file just needs a `Plugin
-Header <https://developer.wordpress.org/plugins/the-basics/header-requirements/>`__,
-a couple of PHP functions, and some
-`hooks <https://developer.wordpress.org/plugins/hooks/>`__ to attach
+example of such a plugin. The plugin PHP file just needs a :ref:`Plugin
+Header <header-requirements>`,
+a couple of PHP functions, and some :ref:`hooks <hooks>`__ to attach
 your functions to.
 
 Plugins allow you to greatly extend the functionality of WordPress
