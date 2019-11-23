@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _understanding-wp-cron-scheduling:
 
 Understanding WP-Cron Scheduling
 ================================
