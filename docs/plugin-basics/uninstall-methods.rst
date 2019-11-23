@@ -58,8 +58,7 @@ For example: ``/plugin-name/uninstall.php``
 
 .. warning::
 
-	   When using ``uninstall.php``, before executing, the plugin should always check
-     for the constant ``WP_UNINSTALL_PLUGIN`` to prevent direct access.
+	   When using ``uninstall.php``, before executing, the plugin should always check for the constant ``WP_UNINSTALL_PLUGIN`` to prevent direct access.
      The constant will be defined by WordPress during the uninstall.php invocation.
      The constant is **NOT** defined when uninstall is performed by
      `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
