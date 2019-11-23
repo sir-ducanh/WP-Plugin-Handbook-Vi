@@ -31,7 +31,7 @@ To get started creating a new plugin, follow the steps below.
 
 Here’s what the process looks like on the Unix command line:
 
-.. code:: shell
+.. code-block:: shell
 
    wordpress$ cd wp-content
    wp-content$ cd plugins
@@ -54,11 +54,11 @@ Only **one file** in the plugin’s folder should have the header comment
 — if the plugin has multiple PHP files, only one of those files should
 have the header comment.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    /**
-    * Plugin Name: YOUR PLUGIN NAME 
+    * Plugin Name: YOUR PLUGIN NAME
     */
 
 After you save the file, you should be able to see your plugin listed in
@@ -98,19 +98,16 @@ the
 and the
 `register\ uninstall\ hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
 
-The `activation
-hook <https://developer.wordpress.org/plugins/the-basics/activation-deactivation-hooks/>`__
+The ::ref:`activation hook <activation-deactivation-hooks>`
 is run when you *activate* your plugin. You would use this to provide a
 function to set up your plugin — for example, creating some default
 settings in the ``options`` table.
 
-The `deactivation
-hook <https://developer.wordpress.org/plugins/the-basics/activation-deactivation-hooks/>`__
+The ::ref:`deactivation hook <activation-deactivation-hooks`
 is run when you *deactivate* your plugin. You would use this to provide
 a function that clears any temporary data stored by your plugin.
 
-These `uninstall
-methods <https://developer.wordpress.org/plugins/the-basics/uninstall-methods/>`__
+These :ref:`uninstall methods <uninstall-methods>`
 are used to clean up after your plugin is *deleted* using the WordPress
 Admin. You would use this to delete all data created by your plugin,
 such as any options that were added to the ``options`` table.
@@ -149,7 +146,7 @@ changes will affect other interactions with the same hook. We highly
 recommend testing frequently.
 
 You can learn more about creating hooks and interacting with them in the
-`Hooks <https://developer.wordpress.org/plugin/hooks/>`__ section of
+::ref:`Hooks <hooks>` section of
 this handbook.
 
 .. _header-n43:
