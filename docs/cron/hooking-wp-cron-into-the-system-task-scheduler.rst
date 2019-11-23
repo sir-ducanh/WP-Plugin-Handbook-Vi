@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _hooking-wp-cron-into-the-system-task-scheduler:
 
 Hooking WP-Cron Into the System Task Scheduler
 ==============================================
