@@ -14,8 +14,8 @@ custom database tables, or set default option values.
 On deactivation, plugins can run a routine to remove temporary data such
 as cache and temp files and directories.
 
-   Alert:The deactivation hook is sometimes confused with the `uninstall
-   hook <https://developer.wordpress.org/plugins/the-basics/uninstall-methods/>`__.
+   Alert:The deactivation hook is sometimes confused with the :ref:`uninstall
+   hook <uninstall-methods>`.
    The uninstall hook is best suited to **delete all data permanently**
    such as deleting plugin options and custom tables, etc.
 
