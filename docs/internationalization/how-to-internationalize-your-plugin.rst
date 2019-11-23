@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _how-to-internationalize-your-plugin:
 
 How to Internationalize Your Plugin
 ===================================
