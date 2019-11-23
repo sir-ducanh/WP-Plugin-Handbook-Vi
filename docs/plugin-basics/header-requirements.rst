@@ -82,18 +82,18 @@ A valid PHP file with a header comment might look like this:
 
    <?php
    /**
-    * Plugin Name:		     My Basics Plugin
-    * Plugin URI:	  	     https://example.com/plugins/the-basics/
-    * Description:				 Handle the basics with this plugin.
-    * Version:		      	 1.10.3
-    * Requires at least:   5.2
-    * Requires PHP:   		 7.2
-    * Author:      			   John Smith
-    * Author URI:    		   https://author.example.com/
-    * License:      			 GPL v2 or later
-    * License URI:    		 https://www.gnu.org/licenses/gpl-2.0.html
-    * Text Domain:    		 my-basics-plugin
-    * Domain Path:    		 /languages
+    * Plugin Name:          My Basics Plugin
+    * Plugin URI:           https://example.com/plugins/the-basics/
+    * Description:          Handle the basics with this plugin.
+    * Version:              1.10.3
+    * Requires at least:    5.2
+    * Requires PHP:         7.2
+    * Author:               John Smith
+    * Author URI:           https://author.example.com/
+    * License:              GPL v2 or later
+    * License URI:          https://www.gnu.org/licenses/gpl-2.0.html
+    * Text Domain:          my-basics-plugin
+    * Domain Path:          /languages
     */
 
 You can play with the different header fields using the `Plugin Header
@@ -134,8 +134,7 @@ Notes
 
 .. warning::
 
-	 When assigning a version number to your project, keep in
-   mind that WordPress uses the PHP version_compare() function to
+	 When assigning a version number to your project, keep in mind that WordPress uses the PHP version_compare() function to
    compare plugin version numbers. Therefore, before you release a new
    version of your plugin, you should make sure that this PHP function
    considers the new version to be “greater” than the old one. For
