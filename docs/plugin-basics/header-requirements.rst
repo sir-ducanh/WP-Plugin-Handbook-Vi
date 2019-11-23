@@ -134,8 +134,8 @@ Notes
 
 .. warning::
 
-	 When assigning a version number to your project, keep in mind that WordPress uses the PHP version_compare() function to
-   compare plugin version numbers. Therefore, before you release a new
-   version of your plugin, you should make sure that this PHP function
-   considers the new version to be “greater” than the old one. For
+	 When assigning a version number to your project, keep in mind that WordPress uses
+   the PHP version_compare() function to compare plugin version numbers. Therefore,
+   before you release a new version of your plugin, you should make sure that this
+   PHP function considers the new version to be “greater” than the old one. For
    example, 1.02 is actually greater than 1.1.
