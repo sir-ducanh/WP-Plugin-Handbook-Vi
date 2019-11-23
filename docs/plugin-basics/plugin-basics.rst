@@ -31,7 +31,7 @@ To get started creating a new plugin, follow the steps below.
 
 Here’s what the process looks like on the Unix command line:
 
-.. code-block:: shell
+.. code-block:: console
 
    wordpress$ cd wp-content
    wp-content$ cd plugins
@@ -46,7 +46,7 @@ Now that you’re editing your new plugin’s PHP file, you’ll need to add a
 **plugin header comment**. This is a specially formatted PHP block
 comment that contains metadata about the plugin, such as its name,
 author, version, license, etc. The plugin header comment must comply
-with the ::ref:`header requirements <header-requirements>`,
+with the :ref:`header requirements <header-requirements>`,
 and at the very least, contain the **name** of the plugin.
 
 Only **one file** in the plugin’s folder should have the header comment
@@ -98,15 +98,15 @@ the
 and the
 `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
 
-The ::ref:`activation hook <activation-deactivation-hooks>` is run when you *activate* your plugin. You would use this to provide a
+The :ref:`activation hook <activation-deactivation-hooks>` is run when you *activate* your plugin. You would use this to provide a
 function to set up your plugin — for example, creating some default
 settings in the ``options`` table.
 
-The ::ref:`deactivation hook <activation-deactivation-hooks>`
+The :ref:`deactivation hook <activation-deactivation-hooks>`
 is run when you *deactivate* your plugin. You would use this to provide
 a function that clears any temporary data stored by your plugin.
 
-These ::ref:`uninstall methods <uninstall-methods>`
+These :ref:`uninstall methods <uninstall-methods>`
 are used to clean up after your plugin is *deleted* using the WordPress
 Admin. You would use this to delete all data created by your plugin,
 such as any options that were added to the ``options`` table.
@@ -145,7 +145,7 @@ changes will affect other interactions with the same hook. We highly
 recommend testing frequently.
 
 You can learn more about creating hooks and interacting with them in the
-::ref:`Hooks <hooks>` section of
+:ref:`Hooks <hooks>` section of
 this handbook.
 
 .. _header-n43:
