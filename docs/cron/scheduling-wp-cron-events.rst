@@ -1,4 +1,4 @@
-.. _header-n0:
+.. _scheduling-wp-cron-events:
 
 Scheduling WP Cron Events
 =========================
