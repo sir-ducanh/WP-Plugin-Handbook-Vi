@@ -18,6 +18,7 @@ This license block comment usually looks something like this:
 
 .. code-block:: php
 
+  <?php
    /*
    {Plugin Name} is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -36,7 +37,7 @@ This license block comment usually looks something like this:
 When combined with the plugin header comment:
 
 .. code-block:: php
-
+  <?php
    /*
    Plugin Name:         WordPress.org Plugin
    Plugin URI:          https://developer.wordpress.org/plugins/the-basics/
