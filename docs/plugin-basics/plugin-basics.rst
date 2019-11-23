@@ -92,22 +92,21 @@ Basic Hooks
 ~~~~~~~~~~~
 
 The 3 basic hooks you’ll need when creating a plugin are the
-`register\ activation\ hook() <https://developer.wordpress.org/reference/functions/register_activation_hook/>`__,
+`register_activation_hook() <https://developer.wordpress.org/reference/functions/register_activation_hook/>`__,
 the
-`register\ deactivation\ hook() <https://developer.wordpress.org/reference/functions/register_deactivation_hook/>`__,
+`register_deactivation_hook() <https://developer.wordpress.org/reference/functions/register_deactivation_hook/>`__,
 and the
-`register\ uninstall\ hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
+`register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
 
-The ::ref:`activation hook <activation-deactivation-hooks>`
-is run when you *activate* your plugin. You would use this to provide a
+The ::ref:`activation hook <activation-deactivation-hooks>` is run when you *activate* your plugin. You would use this to provide a
 function to set up your plugin — for example, creating some default
 settings in the ``options`` table.
 
-The ::ref:`deactivation hook <activation-deactivation-hooks`
+The ::ref:`deactivation hook <activation-deactivation-hooks>`
 is run when you *deactivate* your plugin. You would use this to provide
 a function that clears any temporary data stored by your plugin.
 
-These :ref:`uninstall methods <uninstall-methods>`
+These ::ref:`uninstall methods <uninstall-methods>`
 are used to clean up after your plugin is *deleted* using the WordPress
 Admin. You would use this to delete all data created by your plugin,
 such as any options that were added to the ``options`` table.
