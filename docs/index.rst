@@ -13,45 +13,35 @@ to many of your plugin-related questions right here.
 
 1. If you’re new to plugin development, start by reading the
    :ref:`introduction` and
-   then move on to `the
-   basics <https://developer.wordpress.org/plugins/plugin-basics/>`__.
+   then move on to :ref:`plugin-basics`.
 
-2. Section 3 will introduce you to `plugin
-   security <https://developer.wordpress.org/plugin/security/>`__.
+2. Section 3 will introduce you to :ref:`security`.
 
-3. `Hooks <https://developer.wordpress.org/plugin/hooks/>`__ are what
+3. :ref:`hooks` are what
    make your plugin interact with WordPress. Learn all about them in
    section 4.
 
 4. To find out more about WordPress’ built-in functionality that you can
-   use in your plugin, check out sections 5 – 11: `administration
-   menus <https://developer.wordpress.org/plugin/administration-menus/>`__,
-   `shortcodes <https://developer.wordpress.org/plugin/shortcodes/>`__,
-   `settings <https://developer.wordpress.org/plugin/settings/>`__,
-   `metadata <https://developer.wordpress.org/plugin/metadata/>`__,
-   `custom post
-   types <https://developer.wordpress.org/plugins/post-types/>`__,
-   `taxonomies <https://developer.wordpress.org/plugins/taxonomy/>`__,
-   and `users <https://developer.wordpress.org/plugin/users/>`__.
+   use in your plugin, check out sections 5 – 11: :ref:`administration-menus`,
+   :ref:`shortcodes`, :ref:`settings`, :ref:`metadata`, :ref:`post-types`, :ref:`taxonomies`,
+   and :ref:`users`.
 
-5. Learn about getting data using the `HTTP
-   API <https://developer.wordpress.org/plugin/http-api/>`__ in section
+5. Learn about getting data using the :ref:`http-api` in section
    12.
 
-6. If you’re using `JavaScript, jQuery or
-   Ajax <https://developer.wordpress.org/plugin/javascript/>`__ in your
+6. If you’re using :ref:`JavaScript, jQuery or
+   Ajax <javascript>` in your
    plugin, you’ll find the information you need in section 13.
 
 7. To learn about time-based WordPress tasks using
-   `Cron <https://developer.wordpress.org/plugin/cron/>`__, check out
+   :ref:`Cron <cron>`, check out
    section 14.
 
-8. Sections 15-17 will introduce you to
-   `internationalizing <https://developer.wordpress.org/plugin/internationalization/>`__
-   your plugin, preparing it for `release on
-   WordPress.org <https://developer.wordpress.org/plugin/wordpress-org/>`__,
-   and some `developer
-   tools <https://developer.wordpress.org/plugin/developer-tools/>`__
+8. Sections 15-17 will introduce you to :ref:`internationalizing <internationalization>`
+   your plugin, preparing it for :ref:`release on
+   WordPress.org <wordpress-org>`,
+   and some ref:`developer
+   tools <developer-tools>`
    you might find useful.
 
 The WordPress Plugin Developer Handbook is created by the WordPress
