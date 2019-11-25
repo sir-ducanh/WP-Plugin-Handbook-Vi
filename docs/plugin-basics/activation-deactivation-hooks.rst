@@ -28,9 +28,11 @@ Activation
 
 To set up an activation hook, use the
 `register_activation_hook() <https://developer.wordpress.org/reference/functions/register_activation_hook/>`__
-function::
+function:
 
-   register_activation_hook( __FILE__, 'pluginprefix_function_to_run' );
+.. code-block:: php
+
+  register_activation_hook( __FILE__, 'pluginprefix_function_to_run' );
 
 .. _header-n12:
 
@@ -39,9 +41,10 @@ Deactivation
 
 To set up a deactivation hook, use the
 `register_deactivation_hook() <https://developer.wordpress.org/reference/functions/register_deactivation_hook/>`__
-function::
+function:
+.. code-block:: php
 
-   register_deactivation_hook( __FILE__, 'pluginprefix_function_to_run' );
+  register_deactivation_hook( __FILE__, 'pluginprefix_function_to_run' );
 
 The first parameter in each of these functions refers to your main
 plugin file, which is the file in which you have placed the :ref:`plugin
@@ -59,15 +62,17 @@ One of the most common uses for an activation hook is to refresh
 WordPress permalinks when a plugin registers a custom post type. This
 gets rid of the nasty 404 errors.
 
-Let’s look at an example of how to do this::
+Let’s look at an example of how to do this:
 
-   function pluginprefix_setup_post_type() {
+.. code-block:: php
+
+  function pluginprefix_setup_post_type() {
    	// register the "book" custom post type
-     register_post_type( 'book', ['public' => 'true'] );
-   }
-   add_action( 'init', 'pluginprefix_setup_post_type' );
+    register_post_type( 'book', ['public' => 'true'] );
+  }
+  add_action( 'init', 'pluginprefix_setup_post_type' );
 
-   function pluginprefix_install() {
+  function pluginprefix_install() {
      // trigger our function that registers the custom post type
      pluginprefix_setup_post_type();
 
@@ -81,16 +86,18 @@ this will be covered later. This example is used simply because it’s
 very common.
 
 Using the example from above, the following is how to reverse this
-process and deactivate a plugin::
-  
-   function pluginprefix_deactivation() {
+process and deactivate a plugin:
+
+.. code-block:: php
+
+  function pluginprefix_deactivation() {
    	// unregister the post type, so the rules are no longer in memory
    	unregister_post_type( 'book' );
 
    	// clear the permalinks to remove our post type's rules from the database
    	flush_rewrite_rules();
-   }
-   register_deactivation_hook( __FILE__, 'pluginprefix_deactivation' );
+  }
+  register_deactivation_hook( __FILE__, 'pluginprefix_deactivation' );
 
 For further information regarding activation and deactivation hooks,
 here are some excellent resources:
