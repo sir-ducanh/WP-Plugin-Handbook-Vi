@@ -70,6 +70,7 @@ entity exists.
 
 Example
 ^^^^^^^^
+
 .. code-block:: php
 
   //Create a function called "wporg_init" if it doesn't already exist
@@ -107,6 +108,7 @@ PHP.
 
 Example
 ^^^^^^^^
+
 .. code-block:: php
 
   if ( !class_exists( 'WPOrg_Plugin' ) ) {
@@ -133,9 +135,7 @@ File Organization
 ------------------
 
 The root level of your plugin directory should contain your
-``plugin-name.php`` file and, optionally, your
- :ref:`uninstall.php <uninstall-methods>`
-file. All other files should be organized into sub folders whenever
+``plugin-name.php`` file and, optionally, your :ref:`uninstall.php <uninstall-methods>` file. All other files should be organized into sub folders whenever
 possible.
 
 :ref:`Top ↑ <best-practices>`
@@ -149,6 +149,7 @@ A clear folder structure helps you and others working on your plugin
 keep similar files together.
 
 Here’s a sample folder structure for reference:
+
 .. code-block:: php
 
   /plugin-name
@@ -196,6 +197,7 @@ conditional
 `is_admin() <https://codex.wordpress.org/Function_Reference/is_admin>`__.
 
 For example:
+
 .. code-block:: php
 
   if ( is_admin() ) {
