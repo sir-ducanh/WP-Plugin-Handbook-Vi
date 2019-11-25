@@ -42,6 +42,7 @@ Deactivation
 To set up a deactivation hook, use the
 `register_deactivation_hook() <https://developer.wordpress.org/reference/functions/register_deactivation_hook/>`__
 function:
+
 .. code-block:: php
 
   register_deactivation_hook( __FILE__, 'pluginprefix_function_to_run' );
