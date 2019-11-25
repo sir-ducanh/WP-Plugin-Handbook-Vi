@@ -29,13 +29,15 @@ To get started creating a new plugin, follow the steps below.
 5. Create a new PHP file (it’s also good to name this file after your
    plugin, e.g. ``plugin-name.php``).
 
-Here’s what the process looks like on the Unix command line::
+Here’s what the process looks like on the Unix command line:
 
-   wordpress$ cd wp-content
-   wp-content$ cd plugins
-   plugins$ mkdir plugin-name
-   plugins$ cd plugin-name
-   plugin-name$ vi plugin-name.php
+.. code-block:: shell
+
+  wordpress$ cd wp-content
+  wp-content$ cd plugins
+  plugins$ mkdir plugin-name
+  plugins$ cd plugin-name
+  plugin-name$ vi plugin-name.php
 
 In the example above, “vi” is the name of the text editor. Use whichever
 editor that is comfortable for you.
@@ -51,12 +53,12 @@ Only **one file** in the plugin’s folder should have the header comment
 — if the plugin has multiple PHP files, only one of those files should
 have the header comment.
 
-::
+.. code-block:: php
 
-   <?php
-   /**
-    * Plugin Name: YOUR PLUGIN NAME
-    */
+  <?php
+  /**
+   * Plugin Name: YOUR PLUGIN NAME
+   */
 
 
 After you save the file, you should be able to see your plugin listed in
