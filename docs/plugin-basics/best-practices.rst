@@ -69,9 +69,10 @@ entity exists.
 .. _header-n24:
 
 Example
-^^^^^^^^::
+^^^^^^^^
+.. code-block:: php
 
-   //Create a function called "wporg_init" if it doesn't already exist
+  //Create a function called "wporg_init" if it doesn't already exist
    if ( !function_exists( 'wporg_init' ) ) {
    	function wporg_init() {
        register_setting( 'wporg_settings', 'wporg_option_foo' );
@@ -105,9 +106,10 @@ PHP.
 .. _header-n32:
 
 Example
-^^^^^^^^::
+^^^^^^^^
+.. code-block:: php
 
-   if ( !class_exists( 'WPOrg_Plugin' ) ) {
+  if ( !class_exists( 'WPOrg_Plugin' ) ) {
    	class WPOrg_Plugin
    	{
    		public static function init() {
@@ -146,9 +148,10 @@ Folder Structure
 A clear folder structure helps you and others working on your plugin
 keep similar files together.
 
-Here’s a sample folder structure for reference::
+Here’s a sample folder structure for reference:
+.. code-block:: php
 
-   /plugin-name
+  /plugin-name
         plugin-name.php
         uninstall.php
         /languages
@@ -192,9 +195,10 @@ It’s helpful to separate your admin code from the public code. Use the
 conditional
 `is_admin() <https://codex.wordpress.org/Function_Reference/is_admin>`__.
 
-For example::
+For example:
+.. code-block:: php
 
-   if ( is_admin() ) {
+  if ( is_admin() ) {
    	// we are in admin mode
    	require_once( dirname( __FILE__ ) . '/admin/plugin-name-admin.php' );
    }
