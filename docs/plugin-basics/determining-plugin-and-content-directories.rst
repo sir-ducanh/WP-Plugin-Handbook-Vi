@@ -40,8 +40,8 @@ function like so:
 
 This will return the full URL to myscript.js, such as ``example.com/wp-content/plugins/myplugin/myscript.js``.
 
-To load your plugins’ JavaScript or CSS into the page you should use ```wp_enqueue_script()`` <https://developer.wordpress.org/reference/functions/wp_enqueue_script/>`__
-or ```wp_enqueue_style()`` <https://developer.wordpress.org/reference/functions/wp_enqueue_style/>`__ respectively, passing the result of ``plugins_url()`` as the file URL.
+To load your plugins’ JavaScript or CSS into the page you should use `wp_enqueue_script() <https://developer.wordpress.org/reference/functions/wp_enqueue_script/>`__
+or ` wp_enqueue_style() <https://developer.wordpress.org/reference/functions/wp_enqueue_style/>`__ respectively, passing the result of ``plugins_url()`` as the file URL.
 
 :ref:`Top ↑ <determining-plugin-and-content-directories>`
 
@@ -156,13 +156,14 @@ by plugins or themes, but are listed here for completeness.
 Related
 --------
 
-**\\ WordPress Directories\\** :
+**WordPress Directories** :
 
 ========================================================================================== ======================================= ================================================================================================================================
-**\\\ WordPress Directories\***\ \*:
+**WordPress Directories**:
 ========================================================================================== ======================================= ================================================================================================================================
 `home_url() <https://developer.wordpress.org/reference/functions/home_url/>`__             Home URL                                `http://www.example.com <http://www.example.com/>`__
-`site_url() <https://developer.wordpress.org/reference/functions/site_url/>`__             Site directory URL                      `http://www.example.com <http://www.example.com/>`__ or `http://www.example.com/wordpress <http://www.example.com/wordpress/>`__
+`site_url() <https://developer.wordpress.org/reference/functions/site_url/>`__             Site directory URL                      `http://www.example.com <http://www.example.com/>`__
+                                                                                                                                    or `http://www.example.com/wordpress <http://www.example.com/wordpress/>`__
 `admin_url() <https://developer.wordpress.org/reference/functions/admin_url/>`__           Admin directory URL                     `http://www.example.com/wp-admin <http://www.example.com/wp-admin/>`__
 `includes_url() <https://developer.wordpress.org/reference/functions/includes_url/>`__     Includes directory URL                  `http://www.example.com/wp-includes <http://www.example.com/wp-includes/>`__
 `content_url() <https://developer.wordpress.org/reference/functions/content_url/>`__       Content directory URL                   `http://www.example.com/wp-content <http://www.example.com/wp-content/>`__
