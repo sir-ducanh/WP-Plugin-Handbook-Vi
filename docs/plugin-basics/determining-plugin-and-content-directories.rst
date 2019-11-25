@@ -33,18 +33,15 @@ files, then it’s likely you’ll need the URL to these files so you can
 load them into the page. To do this you should use the
 `plugins_url() <https://developer.wordpress.org/reference/functions/plugins_url/>`__
 function like so:
+
 .. code-block:: php
 
   plugins_url( 'myscript.js', _FILE_ );
 
-This will return the full URL to myscript.js, such as
-``example.com/wp-content/plugins/myplugin/myscript.js``.
+This will return the full URL to myscript.js, such as ``example.com/wp-content/plugins/myplugin/myscript.js``.
 
-To load your plugins’ JavaScript or CSS into the page you should use
-```wp_enqueue_script()`` <https://developer.wordpress.org/reference/functions/wp_enqueue_script/>`__
-or
-```wp_enqueue_style()`` <https://developer.wordpress.org/reference/functions/wp_enqueue_style/>`__
-respectively, passing the result of ``plugins_url()`` as the file URL.
+To load your plugins’ JavaScript or CSS into the page you should use ```wp_enqueue_script()`` <https://developer.wordpress.org/reference/functions/wp_enqueue_script/>`__
+or ```wp_enqueue_style()`` <https://developer.wordpress.org/reference/functions/wp_enqueue_style/>`__ respectively, passing the result of ``plugins_url()`` as the file URL.
 
 :ref:`Top ↑ <determining-plugin-and-content-directories>`
 
@@ -76,6 +73,7 @@ Plugins
 
 Themes
 ~~~~~~~
+
 .. code-block:: php
 
   get_template_directory_uri()
@@ -93,6 +91,7 @@ Themes
 
 Site Home
 ~~~~~~~~~~
+
 .. code-block:: php
 
   home_url()
@@ -104,6 +103,7 @@ Site Home
 
 WordPress
 ~~~~~~~~~~
+
 .. code-block:: php
 
   admin_url()
@@ -118,6 +118,7 @@ WordPress
 
 Multisite
 ~~~~~~~~~~
+
 .. code-block:: php
 
   get_admin_url()
@@ -155,7 +156,7 @@ by plugins or themes, but are listed here for completeness.
 Related
 --------
 
-**\\\ WordPress Directories\***\ \*:
+**\\ WordPress Directories\\** :
 
 ========================================================================================== ======================================= ================================================================================================================================
 **\\\ WordPress Directories\***\ \*:
