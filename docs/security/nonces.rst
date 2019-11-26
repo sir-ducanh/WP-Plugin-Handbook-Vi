@@ -10,8 +10,7 @@ requests for security purposes. Each nonce can only be used once.
 
 If your plugin allows users to submit data; be it on the Admin or the
 Public side; you have to make sure that the user is who they say they
-are and that they `have the necessary
-capability <https://developer.wordpress.org/plugins/security/checking-user-capabilities/>`__
+are and that they :ref:`have the necessary capability <checking-user-capabilities>`
 to perform the action. Doing both in tandem means that data is only
 changing when the user *expects* it to be changing.
 
@@ -20,8 +19,7 @@ changing when the user *expects* it to be changing.
 Using Nonces
 ------------
 
-Following our `checking user capabilities
-example <https://developer.wordpress.org/plugins/security/checking-user-capabilities/#restricted-to-a-specific-capability>`__,
+Following our :ref:`checking user capabilities example <restricted-to-a-specific-capability>`,
 the next step in user data submission security is using nonces.
 
 The capability check ensures that only users who have permission to
@@ -33,7 +31,7 @@ Nonces can be used to check that the current user actually intends to
 perform the action.
 
 When you generate the delete link, you’ll want to use
-`wp\ create\ nonce() <https://developer.wordpress.org/reference/functions/wp_create_nonce/>`__
+`wp_create_nonce() <https://developer.wordpress.org/reference/functions/wp_create_nonce/>`__
 function to add a nonce to the link, the argument passed to the function
 ensures that the nonce being created is unique to that particular
 action.
@@ -41,11 +39,10 @@ action.
 Then, when you’re processing a request to delete a link, you can check
 that the nonce is what you expect it to be.
 
-For more information, Mark Jaquith’s `post on WordPress
-nonces <http://markjaquith.wordpress.com/2006/06/02/wordpress-203-nonces/>`__
+For more information, Mark Jaquith’s `post on WordPress nonces <http://markjaquith.wordpress.com/2006/06/02/wordpress-203-nonces/>`__
 is a great resource.
 
-`Top ↑ <https://developer.wordpress.org/plugins/security/nonces/#top>`__
+:ref:`Top ↑ <nonces>`
 
 .. _complete-example:
 
@@ -55,7 +52,7 @@ Complete Example
 Complete example using capability checks, data validation, secure input,
 secure output and nonces:
 
-.. code:: php
+.. code-block:: php
 
    <?php
    /**
