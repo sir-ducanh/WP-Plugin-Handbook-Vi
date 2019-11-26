@@ -37,7 +37,9 @@ Method 1: register_uninstall_hook
 
 To set up an uninstall hook, use the
 `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__
-function::
+function:
+
+.. code-block:: php
 
   register_uninstall_hook(__FILE__, 'pluginprefix_function_to_run');
 
@@ -58,13 +60,15 @@ For example: ``/plugin-name/uninstall.php``
 
 	When using ``uninstall.php``, before executing, the plugin should always check for the constant ``WP_UNINSTALL_PLUGIN`` to prevent direct access.
 
-  The constant will be defined by WordPress during the uninstall.php invocation.
+The constant will be defined by WordPress during the uninstall.php invocation.
 
-  The constant is **NOT** defined when uninstall is performed by
-  `register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
+The constant is **NOT** defined when uninstall is performed by
+`register_uninstall_hook() <https://developer.wordpress.org/reference/functions/register_uninstall_hook/>`__.
 
 Here is an example deleting option entries and dropping a database
-table::
+table:
+
+.. code-block:: php
 
    // if uninstall.php is not called by WordPress, die
    if (!defined('WP_UNINSTALL_PLUGIN')) {
