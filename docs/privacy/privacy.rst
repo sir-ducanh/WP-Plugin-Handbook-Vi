@@ -12,7 +12,7 @@ users and visitors.
 
 .. _header-n4:
 
-What is Privacy? 
+What is Privacy?
 -----------------
 
 WordPress.org made several enhancements ahead of Europe’s General Data
@@ -68,18 +68,17 @@ principles applicable across any situation:
    regulations of the location where it will be used to collect and
    process people’s data.
 
-(Source: `ISO 29100/Privacy Framework
-standard <https://www.iso.org/standard/45123.html>`__)
+(Source: `ISO 29100/Privacy Framework standard <https://www.iso.org/standard/45123.html>`__)
 
 While not all of these principles will be applicable across all
 situations and uses, using them in the development process can help to
 ensure user trust.
 
-`Top ↑ <https://developer.wordpress.org/plugins/privacy/#top>`__
+:ref:`Top ↑ <privacy>`
 
 .. _header-n33:
 
-Privacy By Design 
+Privacy By Design
 ------------------
 
 Many of these principles are espoused in the Privacy by Design
@@ -113,18 +112,18 @@ framework, which states that:
    privacy information notices, user-friendly options, and clear
    notification of changes.
 
-`Top ↑ <https://developer.wordpress.org/plugins/privacy/#top>`__
+:ref:`Top ↑ <privacy>`
 
 .. _header-n51:
 
-Food for Thought for Your Plugin 
+Food for Thought for Your Plugin
 ---------------------------------
 
 To help your plugin be ready, we recommend going through the following
 list of questions for every plugin that you make:
 
 1.  How does your plugin handle personal data? Use
-    wp\ *add*\ privacy\ *policy*\ content (link) to disclose to your
+    **wp_add_privacy_policy_content (link)** to disclose to your
     users any of the following:
 
     -  Does the plugin share personal data with third parties (e.g. to
@@ -137,7 +136,7 @@ list of questions for every plugin that you make:
        post meta, custom tables, files, etc.
 
     -  Does the plugin use personal data collected by others? If so,
-       what data?Does the plugin pass personal data to a SDK? What does
+       what data? Does the plugin pass personal data to a SDK? What does
        that SDK do with the data?
 
     -  Does the plugin collect telemetry data, directly or indirectly?
@@ -164,10 +163,10 @@ list of questions for every plugin that you make:
 
 3.  Does the plugin use error logging? Does it avoid logging personal
     data if possible? Could you use things like
-    wp\ *privacy*\ anonymize_data to minimize the personal data logged?
+    **wp_privacy_anonymize_data** to minimize the personal data logged?
     How long are log entries kept? Who has access to them?
 
-4.  In wp-admin, what role/capabilities are required to access/see
+4.  In **wp-admin**, what role/capabilities are required to access/see
     personal data? Are they sufficient?
 
 5.  What personal data is exposed on the front end of the site by the
@@ -198,13 +197,13 @@ list of questions for every plugin that you make:
 10. Does the amount of personal data collected or shared by this plugin
     change when certain other plugins are also installed?
 
-`Top ↑ <https://developer.wordpress.org/plugins/privacy/#top>`__
+:ref:`Top ↑ <privacy>`
 
 .. _header-n102:
 
 External Resources
 ------------------
 
--  Privacy Blog `https://privacy.blog <https://privacy.blog/>`__
+-  Privacy Blog `<https://privacy.blog/>`__
 
--  WordPress.org Privacy Policy https://wordpress.org/about/privacy/
+-  WordPress.org Privacy Policy `<https://wordpress.org/about/privacy/>`__
