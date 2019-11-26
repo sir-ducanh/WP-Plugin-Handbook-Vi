@@ -14,7 +14,7 @@ perhaps even millions, of websites, so security is of the utmost
 importance.
 
 In this chapter we will cover how to :ref:`check user capabilities <checking-user-capabilities>`,
- :ref:`validate <data-validation>`and :ref:`sanitize input <securing-input>`, :ref:`sanitize
+:ref:`validate <data-validation>` and :ref:`sanitize input <securing-input>`, :ref:`sanitize
 output <securing-output>` and :ref:`create and validate nonces <nonces>`.
 
 .. _header-n6:
