@@ -18,46 +18,31 @@ Create a Hook
 
 To create a custom hook, use
 `do_action() <https://developer.wordpress.org/reference/functions/do_action/>`__
-for `Actions <https://developer.wordpress.org/plugins/hooks/actions/>`__
-and
-`apply_filters() <https://developer.wordpress.org/reference/functions/apply_filters/>`__
-for
-`Filters <https://developer.wordpress.org/plugins/hooks/filters/>`__.
+for :ref:`Actions <actions>` and `apply_filters() <https://developer.wordpress.org/reference/functions/apply_filters/>`__
+for :ref:`Filters <filters>`.
 
---------------
+.. note:: We recommend using
+  `apply_filters() <https://developer.wordpress.org/reference/functions/apply_filters/>`__
+  on any text that is output to the browser. Particularly on the frontend.
 
-      **Note:** We recommend using
-      `apply_filters() <https://developer.wordpress.org/reference/functions/apply_filters/>`__
-      on any text that is output to the browser. Particularly on the
-      frontend.
+  This makes it easier for plugins to be modified according to the user’s needs.
 
-      This makes it easier for plugins to be modified according to the
-      user’s needs.
-
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/custom-hooks/#top>`__
+:ref:`Top ↑ <custom-hooks>`
 
 .. _header-n14:
 
-Add a Callback to the Hook 
+Add a Callback to the Hook
 ---------------------------
 
 To add a callback function to a custom hook, use
 `add_action() <https://developer.wordpress.org/reference/functions/add_action/>`__
-for `Actions <https://developer.wordpress.org/plugins/hooks/actions/>`__
-and
+for :ref:`Actions <actions>` and
 `add_filter() <https://developer.wordpress.org/reference/functions/add_filter/>`__
-for
-`Filters <https://developer.wordpress.org/plugins/hooks/filters/>`__.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/custom-hooks/#top>`__
+for :ref:`Filters <filters>`.
 
 .. _header-n17:
 
-Naming Conflicts 
+Naming Conflicts
 -----------------
 
 Since any plugin can create a custom hook, it’s important to prefix your
@@ -71,23 +56,20 @@ track down.
 Naming the function ``wporg_email_body`` (where ``wporg_`` is a unique
 prefix for your plugin) would avoid any collisions.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/custom-hooks/#top>`__
-
 .. _header-n22:
 
-Examples 
+Examples
 ---------
 
 .. _header-n23:
 
-Extensible Action: Settings Form 
+Extensible Action: Settings Form
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your plugin adds a settings form to the Administrative Panels, you
 can use Actions to allow other plugins to add their own settings to it.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_settings_page_html()
@@ -102,7 +84,7 @@ can use Actions to allow other plugins to add their own settings to it.
 Now another plugin can register a callback function for the
 ``wporg_after_settings_page_html`` hook and inject new settings:
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function myprefix_add_settings()
@@ -113,25 +95,24 @@ Now another plugin can register a callback function for the
    }
    add_action('wporg_after_settings_page_html', 'myprefix_add_settings');
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/custom-hooks/#top>`__
+:ref:`Top ↑ <custom-hooks>`
 
 .. _header-n29:
 
-Extensible Filter: Custom Post Type 
+Extensible Filter: Custom Post Type
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this example, when the new post type is registered, the parameters
 that define it are passed through a filter, so another plugin can change
 them before the post type is created.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_create_post_type()
    {
        $post_type_params = [/* ... */];
-    
+
        register_post_type(
            'post_type_slug',
            apply_filters('wporg_post_type_params', $post_type_params)
@@ -141,7 +122,7 @@ them before the post type is created.
 Now another plugin can register a callback function for the
 ``wporg_post_type_params`` hook and change post type parameters:
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function myprefix_change_post_type_params($post_type_params)
@@ -151,12 +132,11 @@ Now another plugin can register a callback function for the
    }
    add_filter('wporg_post_type_params', 'myprefix_change_post_type_params');
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/custom-hooks/#top>`__
+:ref:`Top ↑ <custom-hooks>`
 
 .. _header-n35:
 
-External Resources 
+External Resources
 -------------------
 
 -  `Extendable
