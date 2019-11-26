@@ -21,24 +21,22 @@ Audio Shortcode
 The ``[audio]`` shortcode allows you to embed a single audio file.
 
 .. figure:: https://developer.wordpress.org/files/2014/09/shortcodes-tinymce-enhanced-shortcodes-01.png
-   :alt: 
+   :alt:
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/tinymce-enhanced-shortcodes/#top>`__
+:ref:`Top ↑ <tinymce-enhanced-shortcodes>`
 
 .. _header-n10:
 
 Caption Shortcode
 -----------------
 
-The ``caption`` shortcode wraps the image in a div and puts a \`\` tag
+The ``caption`` shortcode wraps the image in a div and puts a ``<p class="wp-caption-text">`` tag
 around the caption.
 
 .. figure:: https://developer.wordpress.org/files/2014/09/shortcodes-tinymce-enhanced-shortcodes-02.png
-   :alt: 
+   :alt:
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/tinymce-enhanced-shortcodes/#top>`__
+:ref:`Top ↑ <tinymce-enhanced-shortcodes>`
 
 .. _header-n14:
 
@@ -49,24 +47,22 @@ The ``[gallery]`` shortcode allows you to embed several images at once
 in a div.
 
 .. figure:: https://developer.wordpress.org/files/2014/09/shortcodes-tinymce-enhanced-shortcodes-03.png
-   :alt: 
+   :alt:
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/tinymce-enhanced-shortcodes/#top>`__
+:ref:`Top ↑ <tinymce-enhanced-shortcodes>`
 
 .. _header-n18:
 
-Playlist Shortcode 
+Playlist Shortcode
 -------------------
 
 The ``[playlist]`` shortcode allows you to attach more than one media
 file and render with an html5 playlist.
 
 .. figure:: https://developer.wordpress.org/files/2014/09/shortcodes-tinymce-enhanced-shortcodes-04.png
-   :alt: 
+   :alt:
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/tinymce-enhanced-shortcodes/#top>`__
+:ref:`Top ↑ <tinymce-enhanced-shortcodes>`
 
 .. _header-n22:
 
