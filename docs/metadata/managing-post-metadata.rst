@@ -7,11 +7,11 @@ Managing Post Metadata
 
 .. _header-n4:
 
-Adding Metadata 
+Adding Metadata
 ----------------
 
 Adding metadata can be done quite easily with
-`add\ post\ meta() <https://developer.wordpress.org/reference/functions/add_post_meta/>`__.
+`add_post_meta() <https://developer.wordpress.org/reference/functions/add_post_meta/>`__.
 The function accepts a ``post_id``, a ``meta_key``, a ``meta_value``,
 and a ``unique`` flag.
 
@@ -27,49 +27,40 @@ The ``meta_value`` can be a string, integer, or an array. If it’s an
 array, it will be automatically serialized before being stored in the
 database.
 
-| The ``unique`` flag allows you to declare whether this key should be
-  unique. A **non** unique key is something a post can have multiple
-  variations of, like price.
-| If you only ever want **one** price for a post, you should flag it
-  ``unique`` and the ``meta_key`` will have one value only.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/managing-post-metadata/#top>`__
+The ``unique`` flag allows you to declare whether this key should be
+unique. A **non** unique key is something a post can have multiple
+variations of, like price.
+If you only ever want **one** price for a post, you should flag it
+``unique`` and the ``meta_key`` will have one value only.
 
 .. _header-n10:
 
-Updating Metadata 
+Updating Metadata
 ------------------
 
 If a key already exists and you want to update it, use
-`update\ post\ meta() <https://developer.wordpress.org/reference/functions/update_post_meta/>`__.
+`update_post_meta() <https://developer.wordpress.org/reference/functions/update_post_meta/>`__.
 If you use this function and the key does **NOT** exist, then it will
 create it, as if you’d used
-`add\ post\ meta() <https://developer.wordpress.org/reference/functions/add_post_meta/>`__.
+`add_post_meta() <https://developer.wordpress.org/reference/functions/add_post_meta/>`__.
 
 Similar to
-`add\ post\ meta() <https://developer.wordpress.org/reference/functions/add_post_meta/>`__,
+`add_post_meta() <https://developer.wordpress.org/reference/functions/add_post_meta/>`__,
 the function accepts a ``post_id``, a ``meta_key``, a ``meta_value``,
 and a ``unique`` flag.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/managing-post-metadata/#top>`__
-
 .. _header-n14:
 
-Deleting Metadata 
+Deleting Metadata
 ------------------
 
-`delete\ post\ meta() <https://developer.wordpress.org/reference/functions/delete_post_meta/>`__
+`delete_post_meta() <https://developer.wordpress.org/reference/functions/delete_post_meta/>`__
 takes a ``post_id``, a ``meta_key``, and optionally ``meta_value``. It
 does exactly what the name suggests.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/managing-post-metadata/#top>`__
-
 .. _header-n17:
 
-Character Escaping 
+Character Escaping
 -------------------
 
 Post meta values are passed through the
@@ -79,7 +70,7 @@ in values (such as JSON) that might include \\ escaped characters.
 
 Consider the JSON value ``{"key":"value with \"escaped quotes\""}``:
 
-.. code:: php
+.. code-block:: php
 
    $escaped_json = '{"key":"value with \"escaped quotes\""}';
    update_post_meta($id, 'escaped_json', $escaped_json);
@@ -91,7 +82,7 @@ Consider the JSON value ``{"key":"value with \"escaped quotes\""}``:
 
 .. _header-n21:
 
-Workaround 
+Workaround
 ~~~~~~~~~~~
 
 By adding one more level of \\ escaping using the function
@@ -99,7 +90,7 @@ By adding one more level of \\ escaping using the function
 (introduced in WP 3.6), you can compensate for the call to
 `stripslashes() <http://php.net/manual/en/function.stripslashes.php>`__:
 
-.. code:: php
+.. code-block:: php
 
    $escaped_json = '{"key":"value with \"escaped quotes\""}';
    update_post_meta($id, 'double_escaped_json', wp_slash($escaped_json));
@@ -109,41 +100,35 @@ By adding one more level of \\ escaping using the function
    {"key":"value with \"escaped quotes\""}
    */
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/managing-post-metadata/#top>`__
-
 .. _header-n25:
 
-Hidden Custom Fields 
+Hidden Custom Fields
 ---------------------
 
 If you are a plugin or theme developer and you are planning to use
 custom fields to store parameters, it is important to note that
 WordPress will not show custom fields which have ``meta_key`` starting
-with an “\ *” (underscore) in the custom fields list on the post edit
-screen or when using the
-[the*\ meta()](https://developer.wordpress.org/reference/functions/the_meta/)
+with an “_” (underscore) in the custom fields list on the post edit
+screen or when using the `the_meta()<https://developer.wordpress.org/reference/functions/the_meta/>`__
 template function.
 
 This can be useful in order to show these custom fields in an unusual
 way by using the
-`add\ meta\ box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__
+`add_meta_box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__
 function.
 
 The example below will add a unique custom field with the ``meta_key``
-name ‘\ *color’ and the \`meta*\ value\` of ‘red’ but this custom field
+name ‘_color’ and the ``meta_value`` of ‘red’ but this custom field
 will not display in the post edit screen:
 
-.. code:: php
+.. code-block:: php
 
    add_post_meta(68, '_color', 'red', true);
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/managing-post-metadata/#top>`__
 
 .. _header-n31:
 
-Hidden Arrays 
+Hidden Arrays
 ~~~~~~~~~~~~~~
 
 In addition, if the ``meta_value`` is an array, it will not be displayed
