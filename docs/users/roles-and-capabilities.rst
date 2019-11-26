@@ -13,7 +13,9 @@ table under the ``user_roles`` key.
 
 .. _header-n5:
 
-Roles 
+.. _roles:
+
+Roles
 ------
 
 A role defines a set of capabilities for a user. For example, what the
@@ -36,17 +38,17 @@ user may see and do in his dashboard.
 More roles can be added and the default roles can be removed.
 
 .. figure:: https://developer.wordpress.org/files/2014/09/wp-roles.png
-   :alt: 
+   :alt:
 
 .. _header-n23:
 
-Adding Roles 
+Adding Roles
 ~~~~~~~~~~~~~
 
 Add new roles and assign capabilities to them with
 `add_role() <https://developer.wordpress.org/reference/functions/add_role/>`__.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_simple_role() {
        add_role(
@@ -59,105 +61,84 @@ Add new roles and assign capabilities to them with
            ]
        );
    }
-    
+
    // Add the simple_role.
    add_action('init', 'wporg_simple_role');
 
---------------
 
-      Alert: After the first call
-      to\ `add_role() <https://developer.wordpress.org/reference/functions/add_role/>`__
+.. warning::
 
-      Sequential calls will do nothing: including altering the
-      capabilities list, which might not be the behavior that you’re
-      expecting.
+	     After the first call to `add_role() <https://developer.wordpress.org/reference/functions/add_role/>`__
 
---------------
+       Sequential calls will do nothing: including altering the capabilities list, which might not be the behavior that you’re expecting.
 
---------------
 
-   Note: To alter the capabilities list in bulk: remove the role using
-   `remove_role() <https://developer.wordpress.org/reference/functions/remove_role/>`__
-   and add it again using
-   `add_role() <https://developer.wordpress.org/reference/functions/add_role/>`__
-   with the new capabilities.
 
-   Make sure to do it only if the capabilities differ from what you’re
-   expecting (i.e. condition this) or you’ll degrade performance
-   considerably!
+.. note::
 
---------------
+      To alter the capabilities list in bulk: remove the role using `remove_role() <https://developer.wordpress.org/reference/functions/remove_role/>`__
+      and add it again using `add_role() <https://developer.wordpress.org/reference/functions/add_role/>`__ with the new capabilities.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
+      Make sure to do it only if the capabilities differ from what you’re expecting (i.e. condition this) or you’ll degrade performance considerably!
 
 .. _header-n38:
 
-Removing Roles 
+Removing Roles
 ~~~~~~~~~~~~~~~
 
 Remove roles with
 `remove_role() <https://developer.wordpress.org/reference/functions/remove_role/>`__.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_simple_role_remove() {
        remove_role( 'simple_role' );
    }
-    
+
    // Remove the simple_role.
    add_action( 'init', 'wporg_simple_role_remove' );
 
---------------
 
-      Alert: After the first call to
-      `remove_role() <https://developer.wordpress.org/reference/functions/remove_role/>`__,
-      the Role and it’s Capabilities will be removed from the database!
+.. warning::
 
-      Sequential calls will do nothing.
+	     After the first call to `remove_role() <https://developer.wordpress.org/reference/functions/remove_role/>`__,
+       the Role and it’s Capabilities will be removed from the database!
 
---------------
+       Sequential calls will do nothing.
 
---------------
 
-   Note:If you’re removing the default roles:
+.. note::
 
-   -  We advise **against** removing the Administrator and Super Admin
-      roles!
+	   If you’re removing the default roles:
 
-   -  Make sure to keep the code in your plugin/theme as future
-      WordPress updates may add these roles again.
+     -  We advise **against** removing the Administrator and Super Admin roles!
 
-   -  | Run
-      | ``update_option('default_role', YOUR_NEW_DEFAULT_ROLE)``
-      | since you’ll be deleting ``subscriber`` which is WP’s default
-        role.
+     -  Make sure to keep the code in your plugin/theme as future WordPress updates may add these roles again.
 
---------------
+     -  Run ``update_option('default_role', YOUR_NEW_DEFAULT_ROLE)`` since you’ll be deleting ``subscriber`` which is WP’s default role.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
+
+
+
+:ref:`Top ↑ <roles-and-capabilities>`
 
 .. _header-n60:
 
-Capabilities 
+.. _capabilities:
+
+Capabilities
 -------------
 
 Capabilities define what a **role** can and can not do: edit posts,
 publish posts, etc.
 
---------------
+.. note::
 
-   Note: Custom post types can require a certain set of Capabilities.
-
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
+	   Custom post types can require a certain set of Capabilities.
 
 .. _header-n67:
 
-Adding Capabilities 
+Adding Capabilities
 ~~~~~~~~~~~~~~~~~~~~
 
 You may define new capabilities for a role.
@@ -167,34 +148,29 @@ Use
 to get the role object, then use the ``add_cap()`` method of that object
 to add a new capability.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_simple_role_caps() {
        // Gets the simple_role role object.
        $role = get_role( 'simple_role' );
-    
+
        // Add a new capability.
        $role->add_cap( 'edit_others_posts', true );
    }
-    
+
    // Add simple_role capabilities, priority must be after the initial role definition.
    add_action( 'init', 'wporg_simple_role_caps', 11 );
 
---------------
 
-   Note: It’s possible to add custom capabilities to any role.
+.. note::
 
-   Under the default WordPress admin, they would have no effect, but
-   they can be used for custom admin screen and front-end areas.
+	   It’s possible to add custom capabilities to any role.
 
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
+     Under the default WordPress admin, they would have no effect, but they can be used for custom admin screen and front-end areas.
 
 .. _header-n77:
 
-Removing Capabilities 
+Removing Capabilities
 ~~~~~~~~~~~~~~~~~~~~~~
 
 You may remove capabilities from a role.
@@ -202,63 +178,48 @@ You may remove capabilities from a role.
 The implementation is similar to Adding Capabilities with the difference
 being the use of ``remove_cap()`` method for the role object.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
-
 .. _header-n81:
 
-Using Roles and Capabilities 
+Using Roles and Capabilities
 -----------------------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
 
 .. _header-n83:
 
-Get Role 
+Get Role
 ~~~~~~~~~
 
 Get the role object including all of it’s capabilities with
 `get_role() <https://developer.wordpress.org/reference/functions/get_role/>`__.
 
-.. code:: php
+.. code-block:: php
 
-   get_role( $role );
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
+    get_role( $role );
 
 .. _header-n87:
 
-User Can 
+User Can
 ~~~~~~~~~
 
 Check if a user have a specified **role** or **capability** with
 `user_can() <https://developer.wordpress.org/reference/functions/user_can/>`__.
 
-.. code:: php
+.. code-block:: php
 
    user_can( $user, $capability );
 
---------------
 
-         Warning: There is an undocumented, third argument, $args, that
-         may include the object against which the test should be
-         performed.
+.. warning::
 
---------------
+      There is an undocumented, third argument, $args, that may include the object against which the test should be performed.
 
-E.g. Pass a post ID to test for the capability of that specific post.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/roles-and-capabilities/#top>`__
+      E.g. Pass a post ID to test for the capability of that specific post.
 
 .. _header-n98:
 
-Current User Can 
+Current User Can
 ~~~~~~~~~~~~~~~~~
 
-`current\ user\ can() <https://developer.wordpress.org/reference/functions/current_user_can/>`__
+`current_user_can() <https://developer.wordpress.org/reference/functions/current_user_can/>`__
 is a wrapper function for
 `user_can() <https://developer.wordpress.org/reference/functions/user_can/>`__
 using the current user object as the ``$user`` parameter.
@@ -275,7 +236,7 @@ a certain level of privileges to access and/or modify.
 
 .. _header-n103:
 
-Example 
+Example
 ~~~~~~~~
 
 Here’s a practical example of adding an Edit link on the in a template
@@ -292,11 +253,11 @@ file if the user has the proper capability:
 
 .. _header-n107:
 
-Multisite 
+Multisite
 ----------
 
 The
-`current\ user\ can\ for\ blog() <https://developer.wordpress.org/reference/functions/current_user_can_for_blog/>`__
+`current_user_can_for_blog() <https://developer.wordpress.org/reference/functions/current_user_can_for_blog/>`__
 function is used to test if the current user has a certain **role** or
 **capability** on a specific blog.
 
@@ -309,7 +270,7 @@ function is used to test if the current user has a certain **role** or
 
 .. _header-n111:
 
-Reference 
+Reference
 ----------
 
 Codex Reference for `User Roles and
