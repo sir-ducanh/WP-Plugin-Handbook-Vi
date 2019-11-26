@@ -47,9 +47,9 @@ is a great resource.
 
 `Top ↑ <https://developer.wordpress.org/plugins/security/nonces/#top>`__
 
-.. _header-n13:
+.. _complete-example:
 
-Complete Example 
+Complete Example
 -----------------
 
 Complete example using capability checks, data validation, secure input,
@@ -78,7 +78,7 @@ secure output and nonces:
        }
        return null;
    }
-    
+
    /**
     * request handler
     */
@@ -90,34 +90,34 @@ secure output and nonces:
            $_GET['action'] === 'wporg_frontend_delete' &&
            wp_verify_nonce($_GET['nonce'], 'wporg_frontend_delete')
        ) {
-    
+
            // verify we have a post id
            $post_id = (isset($_GET['post'])) ? ($_GET['post']) : (null);
-    
+
            // verify there is a post with such a number
            $post = get_post((int)$post_id);
            if (empty($post)) {
                return;
            }
-    
+
            // delete the post
            wp_trash_post($post_id);
-    
+
            // redirect to admin page
            $redirect = admin_url('edit.php');
            wp_safe_redirect($redirect);
-    
+
            // we are done
            die;
        }
    }
-    
+
    if (current_user_can('edit_others_posts')) {
        /**
         * add the delete link to the end of the post content
         */
        add_filter('the_content', 'wporg_generate_delete_link');
-    
+
        /**
         * register our request handler with the init hook
         */
