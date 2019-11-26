@@ -13,30 +13,23 @@ Please keep in mind that your code may be running across hundreds,
 perhaps even millions, of websites, so security is of the utmost
 importance.
 
-In this chapter we will cover how to `check user
-capabilities <https://developer.wordpress.org/plugins/security/checking-user-capabilities/>`__,
-`validate <https://developer.wordpress.org/plugins/security/data-validation/>`__
-and `sanitize
-input <https://developer.wordpress.org/plugins/security/securing-input/>`__,
-`sanitize
-output <https://developer.wordpress.org/plugins/security/securing-output/>`__
-and `create and validate
-nonces <https://developer.wordpress.org/plugins/security/nonces/>`__.
+In this chapter we will cover how to :ref:`check user capabilities <checking-user-capabilities>`,
+ :ref:`validate <data-validation>`and :ref:`sanitize input <securing-input>`, :ref:`sanitize
+output <securing-output>` and :ref:`create and validate nonces <nonces>`.
 
 .. _header-n6:
 
-Quick Reference 
+Quick Reference
 ----------------
 
-See the complete example of `security best practices for WordPress
-plugins and
-themes <https://developer.wordpress.org/plugins/security/nonces/#complete-example>`__.
+See the complete example of :ref:`security best practices for WordPress
+plugins and themes <complete-example>`.
 
-`Top ↑ <https://developer.wordpress.org/plugins/security/#top>`__
+:ref:`Top ↑ <plugin-security>`
 
 .. _header-n9:
 
-External Resources 
+External Resources
 -------------------
 
 -  `How to fix the intentionally vulnerable
