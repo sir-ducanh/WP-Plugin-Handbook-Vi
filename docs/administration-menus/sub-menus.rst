@@ -36,7 +36,7 @@ Top-level menu.
 HTML. In this function we will perform the necessary security checks and
 render the options we’ve registered using the :ref:`Settings API <settings>`.
 
-.. note:: We recommend wrapping your HTML using a with a class of ``wrap``.
+.. note:: We recommend wrapping your HTML using a ``<div>`` with a class of ``wrap``.
 
 .. code-block:: php
 
