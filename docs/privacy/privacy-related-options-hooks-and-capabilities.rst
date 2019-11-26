@@ -7,18 +7,15 @@ Privacy Related Options, Hooks and Capabilities
 
 .. _header-n4:
 
-Options 
+Options
 --------
 
 ``wp_page_for_privacy_policy`` – contains the page ID of a site’s
 privacy page
 
-`Top
-↑ <https://developer.wordpress.org/plugins/privacy/privacy-related-options-hooks-and-capabilities/#top>`__
-
 .. _header-n7:
 
-Actions 
+Actions
 --------
 
 ``user_request_action_confirmed`` – fired when a user confirms a privacy
@@ -36,12 +33,9 @@ data export file as part of the export flow
 ``wp_privacy_personal_data_export_file_created`` – fires after a
 personal data export file has been created
 
-`Top
-↑ <https://developer.wordpress.org/plugins/privacy/privacy-related-options-hooks-and-capabilities/#top>`__
-
 .. _header-n14:
 
-Filters 
+Filters
 --------
 
 ``user_request_action_confirmed_message`` – allows modifying the action
@@ -59,8 +53,7 @@ plugin personal data erasers
 ``wp_privacy_personal_data_exporters`` – supports registration of core
 and plugin personal data exporters
 
-`Top
-↑ <https://developer.wordpress.org/plugins/privacy/privacy-related-options-hooks-and-capabilities/#top>`__
+:ref:`Top ↑ <privacy-related-options-hooks-and-capabilities>`
 
 .. _header-n21:
 
