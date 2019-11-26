@@ -9,8 +9,7 @@ API <using-settings-api>` and :ref:`Options API <options-api>`.
 
 .. warning::
 
-	Please read these chapters before attempting to create your
-  own settings page.
+	Please read these chapters before attempting to create your own settings page.
 
 The example below can be used for quick reference on these topics by
 following the comments.
@@ -32,7 +31,7 @@ read, update, delete) logic using Settings API and Options API
     * @internal never define functions inside callbacks.
     * these functions could be run multiple times; this would result in a fatal error.
     */
-    
+
    /**
     * custom option and settings
     */

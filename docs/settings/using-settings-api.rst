@@ -24,8 +24,7 @@ You can add new fields to existing sections using
 .. warning::
 
 	`register_setting() <https://developer.wordpress.org/reference/functions/register_setting/>`__
-  as well as the mentioned ``add_settings_*()`` functions should all be
-  added to the ``admin_init`` action hook.
+	as well as the mentioned ``add_settings_*()`` functions should all be added to the ``admin_init`` action hook.
 
 .. _header-n12:
 
