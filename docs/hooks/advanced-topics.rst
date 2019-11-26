@@ -7,7 +7,7 @@ Advanced Topics
 
 .. _header-n4:
 
-Removing Actions and Filters 
+Removing Actions and Filters
 -----------------------------
 
 Sometimes you want to remove a callback function from a hook that
@@ -30,17 +30,13 @@ should be identical to the parameters passed to
 `add_filter() <https://developer.wordpress.org/reference/functions/add_filter/>`__
 that registered it.
 
---------------
-
-   **Alert:** To successfully remove a callback function you must
+.. warning:: To successfully remove a callback function you must
    perform the removal after the callback function was registered. The
    order of execution is important.
 
---------------
-
 .. _header-n12:
 
-Example 
+Example
 ~~~~~~~~
 
 Lets say we want to improve the performance of a large theme by removing
@@ -48,7 +44,7 @@ unnecessary functionality.
 
 Let’s analyze the theme’s code by looking into ``functions.php``.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function my_theme_setup_slider()
@@ -56,6 +52,7 @@ Let’s analyze the theme’s code by looking into ``functions.php``.
        // ...
    }
    add_action('template_redirect', 'my_theme_setup_slider', 9);
+
 
 The ``my_theme_setup_slider`` function is adding a slider that we don’t
 need, which probably loads a huge CSS file followed by a JavaScript
@@ -66,7 +63,7 @@ Since we want to hook into WordPress after the ``my_theme_setup_slider``
 callback function was registered (``functions.php`` executed) our best
 chance would be the ``after_setup_theme`` hook.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_disable_slider()
@@ -77,22 +74,19 @@ chance would be the ``after_setup_theme`` hook.
    // make sure we call remove_action() after add_action() has been called
    add_action('after_setup_theme', 'wporg_disable_slider');
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/advanced-topics/#top>`__
+:ref:`Top ↑ <advanced-topics>`
 
 .. _header-n20:
 
-Removing All Callbacks 
+Removing All Callbacks
 -----------------------
 
 You can also remove all of the callback functions associated with a hook
 by using
-`remove\ all\ actions() <https://developer.wordpress.org/reference/functions/remove_all_actions/>`__
+`remove_all_actions() <https://developer.wordpress.org/reference/functions/remove_all_actions/>`__
 /
-`remove\ all\ filters() <https://developer.wordpress.org/reference/functions/remove_all_filters/>`__.
+`remove_all_filters() <https://developer.wordpress.org/reference/functions/remove_all_filters/>`__.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/advanced-topics/#top>`__
 
 .. _header-n23:
 
@@ -108,7 +102,7 @@ You can use the
 `current_filter() <https://developer.wordpress.org/reference/functions/current_filter/>`__
 to determine the current Action / Filter.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_modify_content($content)
@@ -124,12 +118,11 @@ to determine the current Action / Filter.
        return $content;
    }
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/advanced-topics/#top>`__
+:ref:`Top ↑ <advanced-topics>`
 
 .. _header-n28:
 
-Checking How Many Times a Hook Has Run 
+Checking How Many Times a Hook Has Run
 ---------------------------------------
 
 Some hooks are called multiple times in the course of execution, but you
@@ -139,7 +132,7 @@ In this situation, you can check how many times the hook has run with
 the
 `did_action() <https://developer.wordpress.org/reference/functions/did_action/>`__.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_custom()
@@ -151,12 +144,10 @@ the
    }
    add_action('save_post', 'wporg_custom');
 
-`Top
-↑ <https://developer.wordpress.org/plugins/hooks/advanced-topics/#top>`__
 
 .. _header-n33:
 
-Debugging with the “all” Hook 
+Debugging with the “all” Hook
 ------------------------------
 
 If you want a callback function to fire on every single hook, you can
@@ -164,7 +155,7 @@ register it to the ``all`` hook. Sometimes this is useful in debugging
 situations to help determine when a particular event is happening or
 when a page is crashing.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_debug()
