@@ -7,7 +7,7 @@ Working with Custom Post Types
 
 .. _header-n4:
 
-Custom Post Type Templates 
+Custom Post Type Templates
 ---------------------------
 
 You can create custom
@@ -20,27 +20,24 @@ templates:
 
 -  archive-{post_type}.php – for the archive
 
-Where {post*type} is the $post*\ type argument of the
-`register\ post\ type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
+Where *{post_type}* is the *$post_type* argument of the
+`register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
 function.
 
 Building upon what we’ve learned previously, you could create
-single-wporg\ *product.php and archive-wporg*\ product.php template
+**single-wporg_product.php** and **archive-wporg_product.php** template
 files for single product posts and the archive.
 
 Alternatively, you can use the
-`is\ post\ type_archive() <https://developer.wordpress.org/reference/functions/is_post_type_archive/>`__
+`is_post_type_archive() <https://developer.wordpress.org/reference/functions/is_post_type_archive/>`__
 function in any template file to check if the query shows an archive
 page of a given post type, and the
-`post\ type\ archive_title() <https://developer.wordpress.org/reference/functions/post_type_archive_title/>`__
+`post_type_archive_title() <https://developer.wordpress.org/reference/functions/post_type_archive_title/>`__
 function to display the post type title.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/post-types/working-with-custom-post-types/#top>`__
 
 .. _header-n15:
 
-Querying by Post Type 
+Querying by Post Type
 ----------------------
 
 You can query posts of a specific type by passing the ``post_type`` key
@@ -48,7 +45,7 @@ in the arguments array of the ``WP_Query`` class constructor.
 
 Example:
 
-.. code:: php
+.. code-block:: php
 
    $args = [
        'post_type'      => 'product',
@@ -68,8 +65,7 @@ Example:
 This loops through the latest ten product posts and displays the title
 and content of them one by one.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/post-types/working-with-custom-post-types/#top>`__
+:ref;`Top ↑ <working-with-custom-post-types>`
 
 .. _header-n21:
 
@@ -86,7 +82,7 @@ the ``pre_get_posts`` action hook.
 The next example will show posts from ``post``, ``page`` and ``movie``
 post types on the home page:
 
-.. code:: php
+.. code-block:: php
 
    function wporg_add_custom_post_types($query)
    {
