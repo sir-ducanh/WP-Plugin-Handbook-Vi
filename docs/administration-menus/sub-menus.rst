@@ -7,13 +7,13 @@ Sub-Menus
 
 .. _header-n4:
 
-Add a Sub-Menu 
+Add a Sub-Menu
 ---------------
 
 To add a new Sub-menu to WordPress Administration, use the
 ``add_submenu_page()`` function.
 
-.. code:: php
+.. code-block:: php
 
    add_submenu_page(
        string $parent_slug,
@@ -34,17 +34,11 @@ Top-level menu.
 
 **The first step** will be creating a function which will output the
 HTML. In this function we will perform the necessary security checks and
-render the options we’ve registered using the `Settings
-API <https://developer.wordpress.org/plugins/settings/>`__.
+render the options we’ve registered using the :ref:`Settings API <settings>`.
 
---------------
+.. note:: We recommend wrapping your HTML using a with a class of ``wrap``.
 
-   **Note:** We recommend wrapping your HTML using a with a class of
-   ``wrap``.
-
---------------
-
-.. code:: php
+.. code-block:: php
 
    function wporg_options_page_html()
    {
@@ -73,7 +67,8 @@ API <https://developer.wordpress.org/plugins/settings/>`__.
 **The second step** will be registering our WPOrg Options Sub-menu. The
 registration needs to occur during the ``admin_menu`` action hook.
 
-.. code:: php
+
+.. code-block:: php
 
    function wporg_options_page()
    {
@@ -89,15 +84,14 @@ registration needs to occur during the ``admin_menu`` action hook.
    add_action('admin_menu', 'wporg_options_page');
 
 For a list of parameters and what each do please see the
-`add\ submenu\ page() <https://developer.wordpress.org/reference/functions/add_submenu_page/>`__
+`add_submenu_page() <https://developer.wordpress.org/reference/functions/add_submenu_page/>`__
 in the reference.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/sub-menus/#top>`__
+:ref:`Top ↑ <sub-menus>`
 
 .. _header-n19:
 
-Predefined Sub-Menus 
+Predefined Sub-Menus
 ---------------------
 
 Wouldn’t it be nice if we had helper functions that define the
@@ -106,69 +100,63 @@ manually searching it through the source code?
 
 Below is a list of parent slugs and their helper functions:
 
--  `add\ dashboard\ page() <https://developer.wordpress.org/reference/functions/add_dashboard_page/>`__
+-  `add_dashboard_page() <https://developer.wordpress.org/reference/functions/add_dashboard_page/>`__
    – ``index.php``
 
--  `add\ posts\ page() <https://developer.wordpress.org/reference/functions/add_posts_page/>`__
+-  `add_posts_page() <https://developer.wordpress.org/reference/functions/add_posts_page/>`__
    – ``edit.php``
 
--  `add\ media\ page() <https://developer.wordpress.org/reference/functions/add_media_page/>`__
+-  `add_media_page() <https://developer.wordpress.org/reference/functions/add_media_page/>`__
    – ``upload.php``
 
--  `add\ pages\ page() <https://developer.wordpress.org/reference/functions/add_pages_page/>`__
+-  `add_pages_page() <https://developer.wordpress.org/reference/functions/add_pages_page/>`__
    – ``edit.php?post_type=page``
 
--  `add\ comments\ page() <https://developer.wordpress.org/reference/functions/add_comments_page/>`__
+-  `add_comments_page() <https://developer.wordpress.org/reference/functions/add_comments_page/>`__
    – ``edit-comments.php``
 
--  `add\ theme\ page() <https://developer.wordpress.org/reference/functions/add_theme_page/>`__
+-  `add_theme_page() <https://developer.wordpress.org/reference/functions/add_theme_page/>`__
    – ``themes.php``
 
--  `add\ plugins\ page() <https://developer.wordpress.org/reference/functions/add_plugins_page/>`__
+-  `add_plugins_page() <https://developer.wordpress.org/reference/functions/add_plugins_page/>`__
    – ``plugins.php``
 
--  `add\ users\ page() <https://developer.wordpress.org/reference/functions/add_users_page/>`__
+-  `add_users_page() <https://developer.wordpress.org/reference/functions/add_users_page/>`__
    – ``users.php``
 
--  `add\ management\ page() <https://developer.wordpress.org/reference/functions/add_management_page/>`__
+-  `add_management_page() <https://developer.wordpress.org/reference/functions/add_management_page/>`__
    – ``tools.php``
 
--  `add\ options\ page() <https://developer.wordpress.org/reference/functions/add_options_page/>`__
+-  `add_options_page() <https://developer.wordpress.org/reference/functions/add_options_page/>`__
    – ``options-general.php``
 
--  `add\ options\ page() <https://developer.wordpress.org/reference/functions/add_options_page/>`__
+-  `add_options_page() <https://developer.wordpress.org/reference/functions/add_options_page/>`__
    – ``settings.php``
 
--  `add\ links\ page() <https://developer.wordpress.org/reference/functions/add_links_page/>`__
+-  `add_links_page() <https://developer.wordpress.org/reference/functions/add_links_page/>`__
    – ``link-manager.php`` – requires a plugin since WP 3.5+
 
 -  Custom Post Type – ``edit.php?post_type=wporg_post_type``
 
 -  Network Admin – ``settings.php``
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/sub-menus/#top>`__
+:ref:`Top ↑ <sub-menus>`
 
 .. _header-n52:
 
-Remove a Sub-Menu 
+Remove a Sub-Menu
 ------------------
 
-The process of removing Sub-menus is exactly the same as `removing
-Top-level
-menus <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#remove-a-top-level-menu>`__.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/sub-menus/#top>`__
+The process of removing Sub-menus is exactly the same as :ref:`removing
+Top-level menus <remove-a-top-level-menu>`.
 
 .. _header-n55:
 
-Submitting forms 
+Submitting forms
 -----------------
 
 The process of handling form submissions within Sub-menus is exactly the
-same as `Submitting forms within Top-Level
-Menus <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#submitting-forms>`__.
+same as :ref:`Submitting forms within Top-Level Menus <submitting-forms>`.
 
 ``add_submenu_page()`` along with all functions for pre-defined
 sub-menus (``add_dashboard_page``, ``add_posts_page``, etc.) will return
@@ -176,7 +164,7 @@ a ``$hookname``, which you can use as the first parameter of
 ``add_action`` in order to handle the submission of forms within custom
 pages:
 
-.. code:: php
+.. code-block:: php
 
    function wporg_options_page() {
        $hookname = add_submenu_page(
@@ -187,13 +175,12 @@ pages:
            'wporg',
            'wporg_options_page_html'
        );
-    
+
        add_action( 'load-' . $hookname, 'wporg_options_page_html_submit' );
    }
-    
+
    add_action('admin_menu', 'wporg_options_page');
 
 As always, do not forget to check whether the form is being submitted,
-do CSRF verification,
-`validation <https://developer.wordpress.org/plugins/security/data-validation/>`__,
+do CSRF verification, :ref:`validation <data-validation>`,
 and sanitization.
