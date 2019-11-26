@@ -95,7 +95,7 @@ elements.
 
 .. note::
 
-    Note there are no submit buttons in meta boxes.** The meta
+    **Note there are no submit buttons in meta boxes.** The meta
     box HTML is included inside the edit screen’s form tags, all the post
     data including meta box values are transfered via ``POST`` when the
     user clicks on the Publish or Update buttons.
