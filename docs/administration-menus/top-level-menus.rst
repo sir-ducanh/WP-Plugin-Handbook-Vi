@@ -175,6 +175,8 @@ hook before attempting to remove, specify a higher priority number for
 
 .. _header-n43:
 
+.. _submitting-forms:
+
 Submitting forms
 -----------------
 
