@@ -3,20 +3,14 @@
 Custom Settings Page
 ====================
 
-Creating a custom settings page includes the combination of: `creating
-an administration
-menu <https://developer.wordpress.org/plugins/administration-menus/>`__,
-`using Settings
-API <https://developer.wordpress.org/plugins/settings/using-settings-api/>`__
-and `Options
-API <https://developer.wordpress.org/plugins/settings/options-api/>`__.
+Creating a custom settings page includes the combination of: :ref:`creating
+an administration menu <administration-menus>`, :ref:`using Settings
+API <using-settings-api>` and :ref:`Options API <options-api>`.
 
---------------
+.. warning::
 
-   Alert: Please read these chapters before attempting to create your
-   own settings page.
-
---------------
+	Please read these chapters before attempting to create your
+  own settings page.
 
 The example below can be used for quick reference on these topics by
 following the comments.
@@ -31,7 +25,7 @@ a custom option named ``wporg_options`` and performs the CRUD (create,
 read, update, delete) logic using Settings API and Options API
 (including showing error/update messages).
 
-.. code:: php
+.. code-block:: php
 
    <?php
    /**
@@ -45,7 +39,7 @@ read, update, delete) logic using Settings API and Options API
    function wporg_settings_init() {
     // register a new setting for "wporg" page
     register_setting( 'wporg', 'wporg_options' );
-    
+
     // register a new section in the "wporg" page
     add_settings_section(
     'wporg_section_developers',
@@ -53,7 +47,7 @@ read, update, delete) logic using Settings API and Options API
     'wporg_section_developers_cb',
     'wporg'
     );
-    
+
     // register a new field in the "wporg_section_developers" section, inside the "wporg" page
     add_settings_field(
     'wporg_field_pill', // as of WP 4.6 this value is used only internally
@@ -69,19 +63,19 @@ read, update, delete) logic using Settings API and Options API
     ]
     );
    }
-    
+
    /**
     * register our wporg_settings_init to the admin_init action hook
     */
    add_action( 'admin_init', 'wporg_settings_init' );
-    
+
    /**
     * custom option and settings:
     * callback functions
     */
-    
+
    // developers section cb
-    
+
    // section callbacks can accept an $args parameter, which is an array.
    // $args have the following keys defined: title, id, callback.
    // the values are defined at the add_settings_section() function.
@@ -90,9 +84,9 @@ read, update, delete) logic using Settings API and Options API
     <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Follow the white rabbit.', 'wporg' ); ?></p>
     <?php
    }
-    
+
    // pill field cb
-    
+
    // field callbacks can accept an $args parameter, which is an array.
    // $args is defined at the add_settings_field() function.
    // wordpress has magic interaction with the following keys: label_for, class.
@@ -123,7 +117,7 @@ read, update, delete) logic using Settings API and Options API
     </p>
     <?php
    }
-    
+
    /**
     * top level menu
     */
@@ -137,12 +131,12 @@ read, update, delete) logic using Settings API and Options API
     'wporg_options_page_html'
     );
    }
-    
+
    /**
     * register our wporg_options_page to the admin_menu action hook
     */
    add_action( 'admin_menu', 'wporg_options_page' );
-    
+
    /**
     * top level menu:
     * callback functions
@@ -152,16 +146,16 @@ read, update, delete) logic using Settings API and Options API
     if ( ! current_user_can( 'manage_options' ) ) {
     return;
     }
-    
+
     // add error/update messages
-    
+
     // check if the user have submitted the settings
     // wordpress will add the "settings-updated" $_GET parameter to the url
     if ( isset( $_GET['settings-updated'] ) ) {
     // add settings saved message with the class of "updated"
     add_settings_error( 'wporg_messages', 'wporg_message', __( 'Settings Saved', 'wporg' ), 'updated' );
     }
-    
+
     // show error/update messages
     settings_errors( 'wporg_messages' );
     ?>
