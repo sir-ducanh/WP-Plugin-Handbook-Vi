@@ -48,6 +48,7 @@ scenarios.
 .. warning::
 
 	Most WordPress functions properly prepare data for output, so you don’t need to escape the data again.
+
   For example, you can safely call `the_title() <https://developer.wordpress.org/reference/functions/the_title/>`__
   without escaping.
 
