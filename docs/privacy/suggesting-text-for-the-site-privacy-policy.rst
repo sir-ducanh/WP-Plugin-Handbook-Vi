@@ -55,32 +55,28 @@ recommend taking care with the sections on data sharing.
 Code Example
 ------------
 
---------------
-
-      **Note:** It is recommended to call
-      wp\ *add*\ privacy\ *policy*\ content during the admin_init
+.. note:: It is recommended to call **wp_add_privacy_policy_content** during the **admin_init**
       action. Calling it outside of an action hook can lead to problems,
       see ticket #44142 for details.
 
---------------
 
-.. code:: php
+.. code-block:: php
 
    function my_example_plugin_add_privacy_policy_content() {
        if ( ! function_exists( 'wp_add_privacy_policy_content' ) ) {
            return;
        }
-    
+
        $content = sprintf(
            __( 'When you leave a comment on this site, we send your name, email
            address, IP address and comment text to example.com. Example.com does
            not retain your personal data.
-    
+
            The example.com privacy policy is <a href="%s" target="_blank">here</a>.',
            'my_plugin_textdomain' ),
            'https://example.com/privacy-policy'
        );
-    
+
        wp_add_privacy_policy_content(
            'Example Plugin',
            wp_kses_post( wpautop( $content, false ) )
