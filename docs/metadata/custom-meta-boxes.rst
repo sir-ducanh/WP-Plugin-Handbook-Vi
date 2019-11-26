@@ -7,7 +7,7 @@ Custom Meta Boxes
 
 .. _header-n4:
 
-What is a Meta Box? 
+What is a Meta Box?
 --------------------
 
 When a user edits a post, the edit screen is composed of several default
@@ -19,12 +19,9 @@ The content of custom meta boxes are usually HTML form elements where
 the user enters data related to a Plugin’s purpose, but the content can
 be practically any HTML you desire.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
-
 .. _header-n8:
 
-Why Use Meta Boxes? 
+Why Use Meta Boxes?
 --------------------
 
 Meta boxes are handy, flexible, modular edit screen elements that can be
@@ -37,24 +34,16 @@ and displayed to those that do. Meta boxes can be user-arranged on the
 edit screen. The users are free to arrange the edit screen in a way that
 suits them, giving users control over their editing environment.
 
---------------
+.. warning::
 
-   **Alert:** All examples on this page are for illustration purposes
+   All examples on this page are for illustration purposes
    only. The code is not suitable for production environments.
 
-   Operations such as `securing
-   input <https://developer.wordpress.org/plugins/plugin-security/securing-input/>`__,
-   `user capabilities,
-   nonces <https://developer.wordpress.org/plugins/plugin-security/user-capabilities-nonces/>`__,
-   and
-   `internationalization <https://developer.wordpress.org/plugins/metadata/internationalization/>`__
+   Operations such as :ref:`securing input <securing-input>`,
+   :ref:`user capabilities, nonces <user-capabilities-nonces>`,
+   and :ref:`internationalization <internationalization>`
    have been intentionally omitted. Be sure to always address these
    important operations.
-
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
 
 .. _header-n17:
 
@@ -62,13 +51,13 @@ Adding Meta Boxes
 -----------------
 
 To create a meta box use the
-`add\ meta\ box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__
+`add_meta_box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__
 function and plug it’s execution to the ``add_meta_boxes`` action hook.
 
 The following example is adding a meta box to the ``post`` edit screen
 and the ``wporg_cpt`` edit screen.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_add_custom_box()
    {
@@ -90,7 +79,7 @@ box.
 The following example is adding form elements, labels, and other HTML
 elements.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_custom_box_html($post)
    {
@@ -104,14 +93,12 @@ elements.
        <?php
    }
 
---------------
+.. note::
 
-   Note: **Note there are no submit buttons in meta boxes.** The meta
-   box HTML is included inside the edit screen’s form tags, all the post
-   data including meta box values are transfered via ``POST`` when the
-   user clicks on the Publish or Update buttons.
-
---------------
+    Note there are no submit buttons in meta boxes.** The meta
+    box HTML is included inside the edit screen’s form tags, all the post
+    data including meta box values are transfered via ``POST`` when the
+    user clicks on the Publish or Update buttons.
 
 The example shown here only contains one form field, a drop down list.
 You may create as many as needed in any particular meta box. If you have
@@ -121,19 +108,19 @@ organized and visually appealing.
 
 .. _header-n30:
 
-Getting Values 
+Getting Values
 ~~~~~~~~~~~~~~~
 
 To retrieve saved user data and make use of it, you need to get it from
 wherever you saved it initially. If it was stored in the ``postmeta``
 table, you may get the data with
-`get\ post\ meta() <https://developer.wordpress.org/reference/functions/get_post_meta/>`__.
+`get_post_meta() <https://developer.wordpress.org/reference/functions/get_post_meta/>`__.
 
 The following example enhances the previous form elements with
 pre-populated data based on saved meta box values. You will learn how to
 save meta box values in the next section.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_custom_box_html($post)
    {
@@ -152,12 +139,11 @@ More on the
 `selected() <https://developer.wordpress.org/reference/functions/selected/>`__
 function.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+:ref:`Top ↑ <custom-meta-boxes>`
 
 .. _header-n37:
 
-Saving Values 
+Saving Values
 ~~~~~~~~~~~~~~
 
 When a post type is saved or updated, several actions fire, any of which
@@ -174,7 +160,7 @@ Since you are probably dealing with data related to the post, the
 The following example will save the ``wporg_field`` field value in the
 ``_wporg_meta_key`` meta key, which is hidden.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_save_postdata($post_id)
    {
@@ -191,70 +177,60 @@ The following example will save the ``wporg_field`` field value in the
 In production code, remember to follow the security measures outlined in
 the info box!
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+:ref:`Top ↑ <custom-meta-boxes>`
 
 .. _header-n44:
 
-Behind the Scenes 
+Behind the Scenes
 ------------------
 
 You don’t normally need to be concerned about what happens behind the
 scenes. This section was added for completeness.
 
-| When a post edit screen wants to display all the meta boxes that were
-  added to it, it calls the
-  `do\ meta\ boxes() <https://developer.wordpress.org/reference/functions/do_meta_boxes/>`__
-  function. This function loops through all meta boxes and invokes the
-  ``callback`` associated with each.
-| In between each call, intervening markup (such as divs, titles, etc.)
-  is added.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+When a post edit screen wants to display all the meta boxes that were
+added to it, it calls the
+`do_meta_boxes() <https://developer.wordpress.org/reference/functions/do_meta_boxes/>`__
+function. This function loops through all meta boxes and invokes the
+``callback`` associated with each.
+In between each call, intervening markup (such as divs, titles, etc.)
+is added.
 
 .. _header-n48:
 
-Removing Meta Boxes 
+Removing Meta Boxes
 --------------------
 
 To remove an existing meta box from an edit screen use the
-`remove\ meta\ box() <https://developer.wordpress.org/reference/functions/remove_meta_box/>`__
+`remove_meta_box() <https://developer.wordpress.org/reference/functions/remove_meta_box/>`__
 function. The passed parameters must exactly match those used to add the
 meta box with
-`add\ meta\ box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__.
+`add_meta_box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__.
 
 To remove default meta boxes check the source code for the parameters
 used. The default
-`add\ meta\ box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__
+`add_meta_box() <https://developer.wordpress.org/reference/functions/add_meta_box/>`__
 calls are made from ``wp-includes/edit-form-advanced.php``.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
 
 .. _header-n52:
 
-Implementation Variants 
+Implementation Variants
 ------------------------
 
 So far we’ve been using the procedural technique of implementing meta
 boxes. Many plugin developers find the need to implement meta boxes
 using various other techniques.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
-
 .. _header-n55:
 
-OOP 
+OOP
 ~~~~
 
-| Adding meta boxes using OOP is easy and saves you from having to worry
-  about naming collisions in the global namespace.
-| To save memory and allow easier implementation, the following example
-  uses an abstract Class with static methods.
+Adding meta boxes using OOP is easy and saves you from having to worry
+about naming collisions in the global namespace.
+To save memory and allow easier implementation, the following example
+uses an abstract Class with static methods.
 
-.. code:: php
+.. code-block:: php
 
    abstract class WPOrg_Meta_Box
    {
@@ -270,7 +246,7 @@ OOP
                );
            }
        }
-    
+
        public static function save($post_id)
        {
            if (array_key_exists('wporg_field', $_POST)) {
@@ -281,7 +257,7 @@ OOP
                );
            }
        }
-    
+
        public static function html($post)
        {
            $value = get_post_meta($post->ID, '_wporg_meta_key', true);
@@ -295,16 +271,15 @@ OOP
            <?php
        }
    }
-    
+
    add_action('add_meta_boxes', ['WPOrg_Meta_Box', 'add']);
    add_action('save_post', ['WPOrg_Meta_Box', 'save']);
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+:ref:`Top ↑ <custom-meta-boxes>`
 
 .. _header-n59:
 
-AJAX 
+AJAX
 ~~~~~
 
 Since the HTML elements of the meta box are inside the ``form`` tags of
@@ -317,7 +292,7 @@ submitted the page.
 
 .. _header-n62:
 
-Define a Trigger 
+Define a Trigger
 ^^^^^^^^^^^^^^^^^
 
 First, you must define the trigger, this can be a link click, a change
@@ -326,7 +301,7 @@ of a value or any other JavaScript event.
 In the example below we will define ``change`` as our trigger for
 performing an AJAX request.
 
-.. code:: php
+.. code-block:: php
 
    /*jslint browser: true, plusplus: true */
    (function ($, window, document) {
@@ -340,8 +315,7 @@ performing an AJAX request.
        });
    }(jQuery, window, document));
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+:ref:`Top ↑ <custom-meta-boxes>`
 
 .. _header-n67:
 
@@ -355,7 +329,7 @@ In the example below we will make a ``POST`` request, the response will
 either be success or failure, this will indicate wither the value of the
 ``wporg_field`` is valid.
 
-.. code:: php
+.. code-block:: php
 
    /*jslint browser: true, plusplus: true */
    (function ($, window, document) {
@@ -388,22 +362,19 @@ We took the WordPress AJAX file URL dynamically from the
 ``wporg_meta_box_obj`` JavaScript custom object that we will create in
 the next step.
 
---------------
+.. note::
 
-   | **Note:** If your meta box only requires the WordPress AJAX file
-     URL; instead of creating a new custom JavaScript object you could
-     use the ``ajaxurl`` predefined JavaScript variable.
-   | **Available only in the WordPress Administration.** Make sure it is
-     not empty before performing any logic.
+    If your meta box only requires the WordPress AJAX file
+    URL; instead of creating a new custom JavaScript object you could
+    use the ``ajaxurl`` predefined JavaScript variable.
+    **Available only in the WordPress Administration.** Make sure it is
+    not empty before performing any logic.
 
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+:ref:`Top ↑ <custom-meta-boxes>`
 
 .. _header-n77:
 
-Enqueue Client Side Code 
+Enqueue Client Side Code
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next step is to put our code into a script file and enqueue it on our
@@ -412,12 +383,10 @@ edit screens.
 In the example below we will add the AJAX functionality to the edit
 screens of the following post types: post, wporg_cpt.
 
-| The script file will reside at
-  ``/plugin-name/admin/meta-boxes/js/admin.js``,
-| ``plugin-name`` being the main plugin folder,
-| ``/plugin-name/plugin.php`` the file calling the function.
+The script file will reside at ``/plugin-name/admin/meta-boxes/js/admin.js``,
+``plugin-name`` being the main plugin folder, ``/plugin-name/plugin.php`` the file calling the function.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_meta_box_scripts()
    {
@@ -442,18 +411,17 @@ screens of the following post types: post, wporg_cpt.
    }
    add_action('admin_enqueue_scripts', 'wporg_meta_box_scripts');
 
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
+:ref:`Top ↑ <custom-meta-boxes>`
 
 .. _header-n83:
 
-Server Side Code 
+Server Side Code
 ^^^^^^^^^^^^^^^^^
 
 The last step is to write our server side code that is going to handle
 the request.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_meta_box_ajax_handler()
    {
@@ -477,24 +445,16 @@ As a final reminder, the code illustrated on this page lacks important
 operations that take care of security. Be sure your production code
 includes such operations.
 
-See `Handbook’s AJAX
-Chapter <https://developer.wordpress.org/plugins/javascript/ajax/>`__
-and the `Codex <https://codex.wordpress.org/AJAX_in_Plugins>`__ for more
+See :ref:`Handbook’s AJAX Chapter <ajax>` and the `Codex <https://codex.wordpress.org/AJAX_in_Plugins>`__ for more
 on AJAX.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/#top>`__
 
 .. _header-n89:
 
-More Information 
+More Information
 -----------------
 
--  `Complex Meta Boxes in
-   WordPress <http://www.wproots.com/complex-meta-boxes-in-wordpress/>`__
+-  `Complex Meta Boxes in WordPress <http://www.wproots.com/complex-meta-boxes-in-wordpress/>`__
 
--  `How To Create Custom Post Meta Boxes In
-   WordPress <http://wp.smashingmagazine.com/2011/10/04/create-custom-post-meta-boxes-wordpress/>`__
+-  `How To Create Custom Post Meta Boxes In WordPress <http://wp.smashingmagazine.com/2011/10/04/create-custom-post-meta-boxes-wordpress/>`__
 
--  `WordPress Meta Boxes: a Comprehensive Developer’s
-   Guide <http://themefoundation.com/wordpress-meta-boxes-guide/>`__
+-  `WordPress Meta Boxes: a Comprehensive Developer’s Guide <http://themefoundation.com/wordpress-meta-boxes-guide/>`__
