@@ -77,11 +77,11 @@ kinds of data. Here are several examples:
 -  ``validate_file()`` will validate that an entered file path is a real
    path (but not whether the file exists).
 
-| Check the `WordPress code reference <https://developer.wordpress.org/reference/>`__ for more
-  functions like these.
-| Search for functions with names like these: ``*_exists()``,
-  ``*_validate()``, and ``is_*()``. Not all of these are validation
-  functions, but many are helpful.
+Check the `WordPress code reference <https://developer.wordpress.org/reference/>`__ for more
+functions like these.
+Search for functions with names like these: ``*_exists()``,
+``*_validate()``, and ``is_*()``. Not all of these are validation
+functions, but many are helpful.
 
 .. _header-n50:
 
