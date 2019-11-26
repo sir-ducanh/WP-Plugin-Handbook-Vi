@@ -20,9 +20,8 @@ underlying options management.
 
 .. warning::
 
-	When using the Settings API, the form POST to
-  ``wp-admin/options.php`` which provides fairly strict capabilities
-  checking. Users will need the ``manage_options`` capability (and in
+	When using the Settings API, the form POST to ``wp-admin/options.php``
+	which provides fairly strict capabilities checking. Users will need the ``manage_options`` capability (and in
   Multisite will have to be a Super Admin) to submit the form.
 
 .. _header-n10:
@@ -85,14 +84,14 @@ Function Reference
 =============================================== ===================================================
 Setting Register/Unregister                     Add Field/Section
 =============================================== ===================================================
- |``register_setting()``                         |``add_settings_section()``
- |``unregister_setting()``                       |``add_settings_field()``
+ ``register_setting()``                         ``add_settings_section()``
+ ``unregister_setting()``                       ``add_settings_field()``
 =============================================== ===================================================
 
 ========================================================================= ========================================================================
 Options Form Rendering                                                    Errors
 ========================================================================= ========================================================================
- |``settings_fields()``                                                      | ``add_settings_error()``
- |``do_settings_sections()``                                                 | ``get_settings_errors()``
- |``do_settings_fields()``                                                   |``settings_errors()``
+ ``settings_fields()``                                                      ``add_settings_error()``
+ ``do_settings_sections()``                                                 ``get_settings_errors()``
+ ``do_settings_fields()``                                                   ``settings_errors()``
 ========================================================================= ========================================================================
