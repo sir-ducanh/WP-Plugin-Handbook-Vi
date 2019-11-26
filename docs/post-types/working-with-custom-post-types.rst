@@ -16,9 +16,9 @@ for your custom post types. In the same way posts and their archives can
 be displayed using single.php and archive.php, you can create the
 templates:
 
--  single-{post_type}.php – for single posts of a custom post type
+-  **single-{post_type}.php** – for single posts of a custom post type
 
--  archive-{post_type}.php – for the archive
+-  **archive-{post_type}.php** – for the archive
 
 Where *{post_type}* is the *$post_type* argument of the
 `register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
@@ -65,7 +65,7 @@ Example:
 This loops through the latest ten product posts and displays the title
 and content of them one by one.
 
-:ref;`Top ↑ <working-with-custom-post-types>`
+:ref:`Top ↑ <working-with-custom-post-types>`
 
 .. _header-n21:
 
