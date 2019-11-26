@@ -7,7 +7,7 @@ Basic Shortcodes
 
 .. _header-n4:
 
-Add a Shortcode 
+Add a Shortcode
 ----------------
 
 It is possible to add your own shortcodes by using the Shortcode API.
@@ -15,7 +15,7 @@ The process involves registering a callback ``$func`` to a shortcode
 ``$tag`` using
 `add_shortcode() <https://developer.wordpress.org/reference/functions/add_shortcode/>`__.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    add_shortcode(
@@ -33,7 +33,7 @@ WordPress has been initialized.
 
 We recommend the ``init`` action hook.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_shortcodes_init()
@@ -41,7 +41,7 @@ We recommend the ``init`` action hook.
        function wporg_shortcode($atts = [], $content = null)
        {
            // do something to $content
-    
+
            // always return
            return $content;
        }
@@ -50,19 +50,18 @@ We recommend the ``init`` action hook.
    add_action('init', 'wporg_shortcodes_init');
    ?>
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/basic-shortcodes/#top>`__
+:ref:`Top ↑ <basic-shortcodes>`
 
 .. _header-n12:
 
-Remove a Shortcode 
+Remove a Shortcode
 -------------------
 
 It is possible to remove shortcodes by using the Shortcode API. The
 process involves removing a registered ``$tag`` using
 `remove_shortcode() <https://developer.wordpress.org/reference/functions/remove_shortcode/>`__.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    remove_shortcode(
@@ -75,12 +74,11 @@ remove. Specify a higher priority number for
 `add_action() <https://developer.wordpress.org/reference/functions/add_action/>`__
 or hook into an action hook that is run later.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/basic-shortcodes/#top>`__
+:ref:`Top ↑ <basic-shortcodes>`
 
 .. _header-n17:
 
-Check if a Shortcode Exists 
+Check if a Shortcode Exists
 ----------------------------
 
 To check whether a shortcode has been registered use
