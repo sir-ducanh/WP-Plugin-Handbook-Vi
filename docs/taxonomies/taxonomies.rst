@@ -20,9 +20,6 @@ This chapter will show you how to register Custom Taxonomies, how to
 retrieve their content from the database, and how to render them to the
 public.
 
---------------
+.. note::
 
-   **Note:** WordPress 3.4 and earlier had a Taxonomy named “Links”
-   which was deprecated in WordPress 3.5.
-
---------------
+	   WordPress 3.4 and earlier had a Taxonomy named “Links” which was deprecated in WordPress 3.5.
