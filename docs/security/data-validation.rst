@@ -26,16 +26,11 @@ Simple examples of data validation:
 **Data validation should be performed as early as possible.** That means
 validating the data before performing any actions.
 
---------------
-
-      **Note:** Validation can be performed by using JavaScript on the
-      front end and by using PHP on the back end.
-
---------------
+.. note:: Validation can be performed by using JavaScript on the front end and by using PHP on the back end.
 
 .. _header-n21:
 
-Validating the Data 
+Validating the Data
 --------------------
 
 There are at least three ways: built-in PHP functions, core WordPress
@@ -43,7 +38,7 @@ functions, and custom functions you write.
 
 .. _header-n23:
 
-Built-in PHP functions 
+Built-in PHP functions
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Basic validation is doable using many built-in PHP functions, including
@@ -62,12 +57,11 @@ these:
 
 -  ``in_array()`` for checking whether something exists in an array
 
-`Top
-↑ <https://developer.wordpress.org/plugins/security/data-validation/#top>`__
+:ref:`Top ↑ <data-validation>`
 
 .. _header-n37:
 
-Core WordPress functions 
+Core WordPress functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 WordPress provides many useful functions that help validate different
@@ -83,41 +77,35 @@ kinds of data. Here are several examples:
 -  ``validate_file()`` will validate that an entered file path is a real
    path (but not whether the file exists).
 
-| Check the `WordPress code
-  reference <https://developer.wordpress.org/reference/>`__ for more
+| Check the `WordPress code reference <https://developer.wordpress.org/reference/>`__ for more
   functions like these.
 | Search for functions with names like these: ``*_exists()``,
   ``*_validate()``, and ``is_*()``. Not all of these are validation
   functions, but many are helpful.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/security/data-validation/#top>`__
-
 .. _header-n50:
 
-Custom PHP and JavaScript functions 
+Custom PHP and JavaScript functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can write your own PHP and JavaScript functions and include them in
 your plugin. When writing a validation function, you’ll want to name it
-like a question (examples: is\ *phone, is*\ available,
-is\ *us*\ zipcode).
+like a question (examples: is_phone, is_available, is_us_zipcode).
 
 The function should return a boolean, either true or false, depending on
 whether the data is valid or not. This will allow using the function as
 a condition.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/security/data-validation/#top>`__
+:ref:`Top ↑ <data-validation>`
 
 .. _header-n54:
 
-Example 1 
+Example 1
 ----------
 
 Let’s say you have an U.S. zip code input field that a user submits.
 
-.. code:: php
+.. code-block:: php
 
    <input id="wporg_zip_code" type="text" maxlength="10" name="wporg_zip_code">
 
@@ -134,7 +122,7 @@ By using validation we can ensure we’re accepting only valid zip codes.
 
 First you need to write a function to validate a U.S. zip codes:
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function is_us_zip_code($zip_code)
@@ -143,17 +131,17 @@ First you need to write a function to validate a U.S. zip codes:
        if (empty($zip_code)) {
            return false;
        }
-    
+
        // scenario 2: more than 10 characters
        if (strlen(trim($zip_code)) > 10) {
            return false;
        }
-    
+
        // scenario 3: incorrect format
        if (!preg_match('/^\d{5}(\-?\d{4})?$/', $zip_code)) {
            return false;
        }
-    
+
        // passed successfully
        return true;
    }
@@ -161,18 +149,17 @@ First you need to write a function to validate a U.S. zip codes:
 When processing the form, your code should check the ``wporg_zip_code``
 field and perform the action based on the result:
 
-.. code:: php
+.. code-block:: php
 
    if (isset($_POST['wporg_zip_code']) && is_us_zip_code($_POST['wporg_zip_code'])) {
        // your action
    }
 
-`Top
-↑ <https://developer.wordpress.org/plugins/security/data-validation/#top>`__
+:ref:`Top ↑ <data-validation>`
 
 .. _header-n65:
 
-Example 2 
+Example 2
 ----------
 
 Say you’re going to query the database for some posts, and you want to
@@ -186,25 +173,28 @@ passing in malicious data and potentially compromising the website.
 
 Before checking the incoming sort key against the array, the key is
 passed into the built-in WordPress function
-```sanitize_key`` <https://codex.wordpress.org/Function_Reference/sanitize_key>`__.
+`sanitize_key <https://codex.wordpress.org/Function_Reference/sanitize_key>`__.
 This function ensures, among other things, that the key is in lowercase
-(```in_array`` <https://php.net/in_array>`__ performs a *case-sensitive*
+(`in_array <https://php.net/in_array>`__ performs a *case-sensitive*
 search).
 
 Passing “true” into the third parameter of
-```in_array`` <https://php.net/in_array>`__ enables strict type
+`in_array <https://php.net/in_array>`__ enables strict type
 checking, which tells the function to not only compare values but value
 `types <http://php.net/manual/en/language.types.php>`__ as well. This
 allows the code to be certain that the incoming sort key is a string and
 not some other data type.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    $allowed_keys = ['author', 'post_author', 'date', 'post_date'];
-    
+
    $orderby = sanitize_key($_POST['orderby']);
-    
+
    if (in_array($orderby, $allowed_keys, true)) {
        // modify the query to sort by the orderby key
    }
+
+
+:ref:`Top ↑ <data-validation>`
