@@ -62,12 +62,12 @@ add location data using ``meta_key``\ s of ``latitude`` and
 The first thing the plugin needs to do is to create an eraser function
 that accepts an email address and a page, e.g.:
 
-.. code:: php
+.. code-block:: php
 
    function my_plugin_eraser( $email_address, $page = 1 ) {
      $number = 500; // Limit us to avoid timing out
      $page = (int) $page;
-    
+
      $comments = get_comments(
        array(
          'author_email' => $email_address,
@@ -77,24 +77,24 @@ that accepts an email address and a page, e.g.:
          'order'        => 'ASC',
          )
      );
-    
+
      $items_removed = false;
-    
+
      foreach ( (array) $comments as $comment ) {
        $latitude  = get_comment_meta( $comment->comment_ID, 'latitude', true );
        $longitude = get_comment_meta( $comment->comment_ID, 'longitude', true );
-    
+
        if ( ! empty( $latitude ) ) {
          delete_comment_meta( $comment->comment_ID, 'latitude' );
          $items_removed = true;
        }
-    
+
        if ( ! empty( $longitude ) ) {
          delete_comment_meta( $comment->comment_ID, 'longitude' );
                $items_removed = true;
        }
      }
-    
+
      // Tell core if we have more comments to work on still
      $done = count( $comments ) < $number; return array( 'items_removed' => $items_removed,
        'items_retained' => false, // always false in this example
@@ -107,11 +107,11 @@ The next thing the plugin needs to do is to register the callback by
 filtering the eraser array using the
 ``wp_privacy_personal_data_erasers`` filter.
 
-| When registering you provide a friendly name for the eraser (to aid in
-  debugging – this friendly name is not shown to anyone at this time)
-| and the callback, e.g.
+When registering you provide a friendly name for the eraser (to aid in
+debugging – this friendly name is not shown to anyone at this time)
+and the callback, e.g.
 
-.. code:: php
+.. code-block:: php
 
    function register_my_plugin_eraser( $erasers ) {
      $erasers['my-plugin-slug'] = array(
@@ -120,7 +120,7 @@ filtering the eraser array using the
        );
      return $erasers;
    }
-    
+
    add_filter(
      'wp_privacy_personal_data_erasers',
      'register_my_plugin_eraser',
