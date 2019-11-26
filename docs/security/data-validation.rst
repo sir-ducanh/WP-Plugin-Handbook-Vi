@@ -168,7 +168,7 @@ give the user the ability to sort the query results.
 This example code checks an incoming sort key (stored in the “orderby”
 input parameter) for validity by comparing it against an array of
 allowed sort keys using the built-in PHP function
-```in_array`` <https://php.net/in_array>`__. This prevents the user from
+`in_array <https://php.net/in_array>`__. This prevents the user from
 passing in malicious data and potentially compromising the website.
 
 Before checking the incoming sort key against the array, the key is
