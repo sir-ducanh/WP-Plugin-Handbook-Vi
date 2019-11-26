@@ -17,21 +17,19 @@ post type is registered, it gets a new top-level administrative screen
 that can be used to manage and create posts of that type.
 
 To register a new post type, you use the
-`register\ post\ type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
+`register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
 function.
 
---------------
+.. warning::
 
-   **Alert:** We recommend that you put custom post types in a plugin
+	 We recommend that you put custom post types in a plugin
    rather than a theme. This ensures that user content remains portable
    even if they change their theme.
-
---------------
 
 The following example registers a new post type, Products, which is
 identified in the database as ``wporg_product``.
 
-.. code:: php
+.. code-block:: php
 
    function wporg_custom_post_type()
    {
@@ -49,46 +47,40 @@ identified in the database as ``wporg_product``.
    add_action('init', 'wporg_custom_post_type');
 
 Please visit the reference page of
-`register\ post\ type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
+`register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
 for the description of arguments.
 
---------------
+.. warning::
 
-      **Warning:** You must call
-      `register\ post\ type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
-      before the ``admin_init`` and after the ``after_setup_theme``
-      action hooks. A good hook to use is the ``init`` action hook.
-
---------------
+	   You must call `register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
+     before the ``admin_init`` and after the ``after_setup_theme``
+     action hooks. A good hook to use is the ``init`` action hook.
 
 .. _header-n19:
 
-Naming Best Practices 
+Naming Best Practices
 ----------------------
 
 It is important that you prefix your post type functions and identifiers
 with a short prefix that corresponds to your plugin, theme, or website.
 
---------------
+.. warning::
 
-      Warning: **To ensure forward compatibility**, do not use **wp\_**
-      as your identifier — it is being used by WordPress core.
+	     **To ensure forward compatibility**, do not use **wp_**
+       as your identifier — it is being used by WordPress core.
 
-      **Make sure your custom post type identifier does not exceed 20
-      characters** as the ``post_type`` column in the database is
-      currently a VARCHAR field of that length.
+       **Make sure your custom post type identifier does not exceed 20
+       characters** as the ``post_type`` column in the database is
+       currently a VARCHAR field of that length.
 
-      If your identifier is too generic — for example: ``product``. It
-      may conflict with other plugins or themes.
+       If your identifier is too generic — for example: ``product``. It
+       may conflict with other plugins or themes.
 
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/#top>`__
+:ref:`Top ↑ <registering-custom-post-types>`
 
 .. _header-n29:
 
-URLs 
+URLs
 -----
 
 A custom post type gets its own slugs within the site URL structure.
@@ -107,17 +99,17 @@ just like with default post types.
 
 .. _header-n35:
 
-A Custom Slug for a Custom Post Type 
+A Custom Slug for a Custom Post Type
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To set a custom slug for the slug of your custom post type all you need
 to do is add a key => value pair to the ``rewrite`` key in the
-`register\ post\ type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
+`register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
 arguments array.
 
 Example:
 
-.. code:: php
+.. code-block:: php
 
    function wporg_custom_post_type()
    {
@@ -138,27 +130,24 @@ Example:
 The above will result in the following URL structure:
 ``http://example.com/products/%product_name%``
 
---------------
+.. warning::
 
-      **Warning:** Using a generic slug like ``products`` can
-      potentially conflict with other plugins or themes.
+	     Using a generic slug like ``products`` can potentially conflict with other plugins or themes.
 
---------------
 
---------------
 
-   **Note:** Unlike the custom post type identifiers, the duplicate slug
-   problem can be solved easily by changing the slug for one of the
-   conflicting post types.
+.. note::
 
-   If the plugin author was smart enough to include an
-   `apply_filters() <https://developer.wordpress.org/reference/functions/apply_filters/>`__
-   call on the arguments, this can be done programmatically by
-   overriding the arguments submitted via the
-   `register\ post\ type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
-   function.
+      Unlike the custom post type identifiers, the duplicate slug
+      problem can be solved easily by changing the slug for one of the
+      conflicting post types.
 
-   **Solving duplicate post type identifiers is not possible without
-   disabling one of the conflicting post types.**
+      If the plugin author was smart enough to include an
+      `apply_filters() <https://developer.wordpress.org/reference/functions/apply_filters/>`__
+      call on the arguments, this can be done programmatically by
+      overriding the arguments submitted via the
+      `register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
+      function.
 
---------------
+      **Solving duplicate post type identifiers is not possible without
+      disabling one of the conflicting post types.**
