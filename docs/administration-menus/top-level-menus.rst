@@ -11,10 +11,10 @@ Add a Top-Level Menu
 --------------------
 
 To add a new Top-level menu to WordPress Administration, use the
-`add\ menu\ page() <https://developer.wordpress.org/reference/functions/add_menu_page/>`__
+`add_menu_page() <https://developer.wordpress.org/reference/functions/add_menu_page/>`__
 function.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    add_menu_page(
@@ -29,25 +29,19 @@ function.
 
 .. _header-n7:
 
-Example 
+Example
 ~~~~~~~~
 
 Lets say we want to add a new Top-level menu called “WPOrg”.
 
 **The first step** will be creating a function which will output the
 HTML. In this function we will perform the necessary security checks and
-render the options we’ve registered using the `Settings
-API <https://developer.wordpress.org/plugins/settings/>`__.
+render the options we’ve registered using the :ref:`Settings API <settings>`.
 
---------------
+.. note:: We recommend wrapping your HTML using a with a class of ``wrap``.
 
-      | **Note:**
-      | We recommend wrapping your HTML using a with a class of
-        ``wrap``.
 
---------------
-
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_options_page_html() {
@@ -77,7 +71,7 @@ API <https://developer.wordpress.org/plugins/settings/>`__.
 **The second step** will be registering our WPOrg menu. The registration
 needs to occur during the ``admin_menu`` action hook.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_options_page() {
@@ -95,11 +89,10 @@ needs to occur during the ``admin_menu`` action hook.
    ?>
 
 For a list of parameters and what each do please see the
-`add\ menu\ page() <https://developer.wordpress.org/reference/functions/add_menu_page/>`__
+`add_menu_page() <https://developer.wordpress.org/reference/functions/add_menu_page/>`__
 in the reference.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#top>`__
+:ref:`Top ↑ <top-level-menus>`
 
 .. _header-n21:
 
@@ -113,7 +106,7 @@ For the sake of completeness and helping you understand legacy code, we
 will show another way: passing a ``PHP file path`` as the ``$menu_slug``
 parameter with an ``null`` ``$function`` parameter.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_options_page() {
@@ -130,19 +123,18 @@ parameter with an ``null`` ``$function`` parameter.
    add_action( 'admin_menu', 'wporg_options_page' );
    ?>
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#top>`__
+:ref:`Top ↑ <top-level-menus>`
 
 .. _header-n26:
 
-Remove a Top-Level Menu 
+Remove a Top-Level Menu
 ------------------------
 
 To remove a registered menu from WordPress Administration, use the
-`remove\ menu\ page() <https://developer.wordpress.org/reference/functions/remove_menu_page/>`__
+`remove_menu_page() <https://developer.wordpress.org/reference/functions/remove_menu_page/>`__
 function.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    remove_menu_page(
@@ -150,26 +142,23 @@ function.
    );
    ?>
 
---------------
+.. warning::
 
-         | \ **Warning:** Removing menus won’t prevent users accessing
-           them directly.
-         | This should never be used as a way to restrict `user
-           capabilities <https://developer.wordpress.org/plugins/users/roles-and-capabilities/>`__.
+    Removing menus won’t prevent users accessing them directly.
 
---------------
+    This should never be used as a way to restrict :ref:`user capabilities <roles-and-capabilities>`.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#top>`__
+
+:ref:`Top ↑ <top-level-menus>`
 
 .. _header-n38:
 
-Example 
+Example
 ~~~~~~~~
 
 Lets say we want to remove the “Tools” menu from.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_remove_options_page() {
@@ -182,12 +171,9 @@ Make sure that the menu have been registered with the ``admin_menu``
 hook before attempting to remove, specify a higher priority number for
 `add_action() <https://developer.wordpress.org/reference/functions/add_action/>`__.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#top>`__
-
 .. _header-n43:
 
-Submitting forms 
+Submitting forms
 -----------------
 
 To process the submissions of forms on options pages, you will need two
@@ -197,21 +183,17 @@ things:
 
 2. Add a hook with the slug, returned by ``add_menu_page``.
 
---------------
+.. note::
 
-      **Note:** You only need to follow those steps if you are manually
-      creating forms in the back-end. The `Settings
-      API <https://developer.wordpress.org/plugins/settings/>`__ is the
-      recommended way to do this.
+    You only need to follow those steps if you are manually
+    creating forms in the back-end. The :ref:`Settings API <settings>` is the
+    recommended way to do this.
 
---------------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#top>`__
+:ref:`Top ↑ <top-level-menus>`
 
 .. _header-n56:
 
-Form action attribute 
+Form action attribute
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Use the ``$menu_slug`` parameter of the options page as the first
@@ -219,16 +201,13 @@ parameter of ``menu_page_url()``. By the function will automatically
 escape URL and echo it by default, so you can directly use it within the
 tag:
 
-.. code:: php
+.. code-block:: php
 
    <form action="<?php menu_page_url( 'wporg' ) ?>" method="post">
 
-`Top
-↑ <https://developer.wordpress.org/plugins/administration-menus/top-level-menus/#top>`__
-
 .. _header-n60:
 
-Processing the form 
+Processing the form
 ~~~~~~~~~~~~~~~~~~~~
 
 The ``$function`` you specify while adding the page will only be called
@@ -239,18 +218,16 @@ need to send headers (ex. redirects) back to the browser.
 ``"load-$hookname"`` action before any HTML output. You can use this to
 assign a function, which could process the form.
 
---------------
+.. note::
 
-      **Note:** ``"load-$hookname"`` will be executed every time before
-      an options page will be displayed, even when the form is not being
-      submitted.
-
---------------
+    ``"load-$hookname"`` will be executed every time before
+    an options page will be displayed, even when the form is not being
+    submitted.
 
 With the return parameter and action in mind, the example from above
 would like this:
 
-.. code:: php
+.. code-block:: php
 
    function wporg_options_page() {
        $hookname = add_menu_page(
@@ -262,7 +239,7 @@ would like this:
            plugin_dir_url(__FILE__) . 'images/icon_wporg.png',
            20
        );
-    
+
        add_action( 'load-' . $hookname, 'wporg_options_page_submit' );
    }
    add_action( 'admin_menu', 'wporg_options_page' );
@@ -274,8 +251,7 @@ including:
 1. Whether the form is being submitted
    (``'POST' === $_SERVER['REQUEST_METHOD']`` ).
 
-2. `CSRF
-   verification <https://developer.wordpress.org/plugins/security/nonces/>`__
+2. :ref:`CSRF verification <nonces>`
 
 3. Validation
 
