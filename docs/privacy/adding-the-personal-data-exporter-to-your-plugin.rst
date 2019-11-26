@@ -48,16 +48,15 @@ all the personal data they’ve collected at once. A well behaved plugin
 will limit the amount of data it attempts to erase per page (e.g. 100
 posts, 200 comments, etc.)
 
-| The exporter callback replies with whatever data it has for that email
-  address and page and whether it is done or not. If a exporter callback
-  reports that it is not done, it will be called again (in a separate
-  request) with the page parameter incremented by 1. Exporter callbacks
-  are expected to return an array of items for the export. Each item
-  contains an a group identifier for the group of which
-| the item is a part (e.g. comments, posts, orders, etc.), an optional
-  group label (translated), an item identifier (e.g. comment-133) and
-  then an array of name, value pairs containing the data to be exported
-  for that item.
+The exporter callback replies with whatever data it has for that email
+address and page and whether it is done or not. If a exporter callback
+reports that it is not done, it will be called again (in a separate
+request) with the page parameter incremented by 1. Exporter callbacks
+are expected to return an array of items for the export. Each item
+contains an a group identifier for the group of which the item is a part (e.g. comments, posts, orders, etc.), an optional
+group label (translated), an item identifier (e.g. comment-133) and
+then an array of name, value pairs containing the data to be exported
+for that item.
 
 It is noteworthy that the value could be a media path, in which case a
 link to the media file will be added to the index HTML page in the
@@ -81,14 +80,14 @@ location data using ``meta_key``\ s of ``latitude`` and ``longitude``
 The first thing the plugin needs to do is to create an exporter function
 that accepts an email address and a page, e.g.:
 
-.. code:: php
+.. code-block:: php
 
    function my_plugin_exporter( $email_address, $page = 1 ) {
      $number = 500; // Limit us to avoid timing out
      $page = (int) $page;
-    
+
      $export_items = array();
-    
+
      $comments = get_comments(
        array(
          'author_email' => $email_address,
@@ -98,11 +97,11 @@ that accepts an email address and a page, e.g.:
          'order' => 'ASC',
        )
      );
-    
+
      foreach ( (array) $comments as $comment ) {
        $latitude = get_comment_meta( $comment->comment_ID, 'latitude', true );
        $longitude = get_comment_meta( $comment->comment_ID, 'longitude', true );
-    
+
        // Only add location data to the export if it is not empty
        if ( ! empty( $latitude ) ) {
          // Most item IDs should look like postType-postID
@@ -110,17 +109,17 @@ that accepts an email address and a page, e.g.:
          // use a unique value to avoid having this item's export
          // combined in the final report with other items of the same id
          $item_id = "comment-{$comment->comment_ID}";
-    
+
          // Core group IDs include 'comments', 'posts', etc.
          // But you can add your own group IDs as needed
          $group_id = 'comments';
-    
+
          // Optional group label. Core provides these for core groups.
          // If you define your own group, the first exporter to
          // include a label will be used as the group label in the
          // final exported report
          $group_label = __( 'Comments' );
-    
+
          // Plugins can add as many items in the item data array as they want
          $data = array(
            array(
@@ -132,7 +131,7 @@ that accepts an email address and a page, e.g.:
              'value' => $longitude
            )
          );
-    
+
          $export_items[] = array(
            'group_id' => $group_id,
            'group_label' => $group_label,
@@ -141,7 +140,7 @@ that accepts an email address and a page, e.g.:
          );
        }
      }
-    
+
      // Tell core if we have more comments to work on still
      $done = count( $comments ) < $number;
      return array(
@@ -158,7 +157,7 @@ When registering you provide a friendly name for the export (to aid in
 debugging – this friendly name is not shown to anyone at this time) and
 the callback, e.g.
 
-.. code:: php
+.. code-block:: php
 
    function register_my_plugin_exporter( $exporters ) {
      $exporters['my-plugin-slug'] = array(
@@ -167,7 +166,7 @@ the callback, e.g.
      );
      return $exporters;
    }
-    
+
    add_filter(
      'wp_privacy_personal_data_exporters',
      'register_my_plugin_exporter',
