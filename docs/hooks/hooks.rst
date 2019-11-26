@@ -24,7 +24,8 @@ never have `side effects <https://en.wikipedia.org/wiki/Side_effect_(computer_sc
 such as affecting global variables and output.
 
 WordPress provides many hooks that you can use, but you can also :ref:`create
-your own <custom-hooks>`__ so that other developers can extend and modify your plugin or theme.
+your own <custom-hooks>`__ 
+so that other developers can extend and modify your plugin or theme.
 
 .. _header-n7:
 
