@@ -135,6 +135,8 @@ allows any visitor to the site to trash posts!**
 
 .. _header-n23:
 
+.. _restricted-to-a-specific-capability:
+
 Restricted to a Specific Capability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
