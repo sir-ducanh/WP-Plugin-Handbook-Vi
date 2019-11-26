@@ -127,6 +127,8 @@ parameter with an ``null`` ``$function`` parameter.
 
 .. _header-n26:
 
+.. _remove-a-top-level-menu:
+
 Remove a Top-Level Menu
 ------------------------
 
