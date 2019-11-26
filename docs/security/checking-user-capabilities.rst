@@ -10,13 +10,12 @@ Public side—it should check for User Capabilities.
 
 .. _header-n4:
 
-User Roles and Capabilities 
+User Roles and Capabilities
 ----------------------------
 
 The most important step in creating an efficient security layer is
 having a user permission system in place. WordPress provides this in the
-form of `User Roles and
-Capabilities <https://developer.wordpress.org/plugins/users/roles-and-capabilities/>`__.
+form of :ref:`User Roles and Capabilities <roles-and-capabilities>`.
 
 Every user logged into WordPress is automatically assigned specific User
 capabilities depending on their User role.
@@ -46,7 +45,7 @@ current user has the necessary capabilities.**
 
 .. _header-n13:
 
-Hierarchy 
+Hierarchy
 ~~~~~~~~~~
 
 The higher the user role, the more capabilities the user has. Each user
@@ -56,16 +55,12 @@ For example, the “Administrator”, which is the highest user role on a
 single site installation, inherits the following roles and their
 capabilities: “Subscriber”, “Contributor”, “Author” and “Editor”.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/security/checking-user-capabilities/#top>`__
+:ref:`Top ↑ <checking-user-capabilities>`
 
 .. _header-n17:
 
-Examples 
+Examples
 ---------
-
-`Top
-↑ <https://developer.wordpress.org/plugins/security/checking-user-capabilities/#top>`__
 
 .. _header-n19:
 
@@ -76,7 +71,7 @@ The example below creates a link on the frontend which gives the ability
 to trash posts. Because this code does not check user capabilities, **it
 allows any visitor to the site to trash posts!**
 
-.. code:: php
+.. code-block:: php
 
    <?php
    /**
@@ -97,47 +92,46 @@ allows any visitor to the site to trash posts!**
    }
    return null;
    }
-    
+
    /**
    * request handler
    */
    function wporg_delete_post()
    {
    if (isset($_GET['action']) && $_GET['action'] === 'wporg_frontend_delete') {
-    
+
    // verify we have a post id
    $post_id = (isset($_GET['post'])) ? ($_GET['post']) : (null);
-    
+
    // verify there is a post with such a number
    $post = get_post((int)$post_id);
    if (empty($post)) {
    return;
    }
-    
+
    // delete the post
    wp_trash_post($post_id);
-    
+
    // redirect to admin page
    $redirect = admin_url('edit.php');
    wp_safe_redirect($redirect);
-    
+
    // we are done
    die;
    }
    }
-    
+
    /**
    * add the delete link to the end of the post content
    */
    add_filter('the_content', 'wporg_generate_delete_link');
-    
+
    /**
    * register our request handler with the init hook
    */
    add_action('init', 'wporg_delete_post');
 
-`Top
-↑ <https://developer.wordpress.org/plugins/security/checking-user-capabilities/#top>`__
+:ref:`Top ↑ <checking-user-capabilities>`
 
 .. _header-n23:
 
@@ -152,7 +146,7 @@ To accomplish this, we will check that the current user has the
 capability ``edit_others_posts``, which only Editors or above would
 have:
 
-.. code:: php
+.. code-block:: php
 
    <?php
    /**
@@ -174,43 +168,45 @@ have:
    }
    return null;
    }
-    
+
    /**
    * request handler
    */
    function wporg_delete_post()
    {
    if (isset($_GET['action']) && $_GET['action'] === 'wporg_frontend_delete') {
-    
+
    // verify we have a post id
    $post_id = (isset($_GET['post'])) ? ($_GET['post']) : (null);
-    
+
    // verify there is a post with such a number
    $post = get_post((int)$post_id);
    if (empty($post)) {
    return;
    }
-    
+
    // delete the post
    wp_trash_post($post_id);
-    
+
    // redirect to admin page
    $redirect = admin_url('edit.php');
    wp_safe_redirect($redirect);
-    
+
    // we are done
    die;
    }
    }
-    
+
    if (current_user_can('edit_others_posts')) {
    /**
    * add the delete link to the end of the post content
    */
    add_filter('the_content', 'wporg_generate_delete_link');
-    
+
    /**
    * register our request handler with the init hook
    */
    add_action('init', 'wporg_delete_post');
    }
+
+:ref:`Top ↑ <checking-user-capabilities>`
