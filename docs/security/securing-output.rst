@@ -115,7 +115,7 @@ normalizes HTML entities.
    ];
    echo wp_kses( $custom_content, $allowed_html );
 
-``wp_kses_post()`` is a wrapper function for ``wp_kses`` where
+`wp_kses_post() <https://developer.wordpress.org/reference/functions/wp_kses_post/>`__ is a wrapper function for ``wp_kses`` where
 ``$allowed_html`` is a set of rules used by post content.
 
 .. code-block:: php
