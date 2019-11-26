@@ -7,20 +7,16 @@ Working with User Metadata
 
 .. _header-n4:
 
-Introduction 
+Introduction
 -------------
 
 WordPress’ ``users`` table was designed to contain only the essential
 information about the user.
 
---------------
+.. note::
 
-   Note: As of WP 4.7 the table contains: ``ID``, ``user_login``,
-   ``user_pass``, ``user_nicename``, ``user_email``, ``user_url``,
-   ``user_registered``, ``user_activation_key``, ``user_status`` and
-   ``display_name``.
-
---------------
+      As of WP 4.7 the table contains: ``ID``, ``user_login``, ``user_pass``, ``user_nicename``, ``user_email``, ``user_url``,
+      ``user_registered``, ``user_activation_key``, ``user_status`` and ``display_name``.
 
 Because of this, to store additional data, the ``usermeta`` table was
 introduced, which can store any arbitrary amount of data about a user.
@@ -28,12 +24,9 @@ introduced, which can store any arbitrary amount of data about a user.
 Both tables are tied together using one-to-many relationship based on
 the ``ID`` in the ``users`` table.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
-
 .. _header-n13:
 
-Manipulating User Metadata 
+Manipulating User Metadata
 ---------------------------
 
 There are two main ways for manipulating User Metadata.
@@ -56,7 +49,7 @@ involved in the process and why they are there.
 
 .. _header-n23:
 
-``edit_user_profile`` hook 
+``edit_user_profile`` hook
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This action hook is fired whenever a user edits **it’s own** user
@@ -65,12 +58,9 @@ profile.
 **Remember,** a user that doesn’t have the capability of editing his own
 profile won’t fire this hook.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
-
 .. _header-n27:
 
-``show_user_profile`` hook 
+``show_user_profile`` hook
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This action hook is fired whenever a user edits a user profile of
@@ -79,18 +69,15 @@ This action hook is fired whenever a user edits a user profile of
 **Remember,** a user that doesn’t have the capability for editing 3rd
 party profiles won’t fire this hook.
 
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
-
 .. _header-n31:
 
-Example Form Field 
+Example Form Field
 ^^^^^^^^^^^^^^^^^^^
 
 In the example below we will be adding a birthday field to the all
 profile screens. Saving it to the database on profile updates.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    /**
@@ -124,7 +111,7 @@ profile screens. Saving it to the database on profile updates.
        </table>
        <?php
    }
-    
+
    /**
     * The save action.
     *
@@ -138,7 +125,7 @@ profile screens. Saving it to the database on profile updates.
        if (!current_user_can('edit_user', $user_id)) {
            return false;
        }
-    
+
        // create/update user meta for the $user_id
        return update_user_meta(
            $user_id,
@@ -146,25 +133,25 @@ profile screens. Saving it to the database on profile updates.
            $_POST['birthday']
        );
    }
-    
+
    // add the field to user's own profile editing screen
    add_action(
        'edit_user_profile',
        'wporg_usermeta_form_field_birthday'
    );
-    
+
    // add the field to user profile editing screen
    add_action(
        'show_user_profile',
        'wporg_usermeta_form_field_birthday'
    );
-    
+
    // add the save action to user's own profile editing screen update
    add_action(
        'personal_options_update',
        'wporg_usermeta_form_field_birthday_update'
    );
-    
+
    // add the save action to user profile editing screen update
    add_action(
        'edit_user_profile_update',
@@ -173,28 +160,25 @@ profile screens. Saving it to the database on profile updates.
 
 .. _header-n34:
 
-Programmatically 
+Programmatically
 ~~~~~~~~~~~~~~~~~
 
 This option is suitable for cases where you’re building a custom user
 area and/or plan to disable access to the WordPress admin area.
 
 The functions available for manipulating User Metadata are:
-`add\ user\ meta() <https://developer.wordpress.org/reference/functions/add_user_meta/>`__,
-`update\ user\ meta() <https://developer.wordpress.org/reference/functions/update_user_meta/>`__,
-`delete\ user\ meta() <https://developer.wordpress.org/reference/functions/delete_user_meta/>`__
+`add_user_meta() <https://developer.wordpress.org/reference/functions/add_user_meta/>`__,
+`update_user_meta() <https://developer.wordpress.org/reference/functions/update_user_meta/>`__,
+`delete_user_meta() <https://developer.wordpress.org/reference/functions/delete_user_meta/>`__
 and
-`get\ user\ meta() <https://developer.wordpress.org/reference/functions/get_user_meta/>`__.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
+`get_user_meta() <https://developer.wordpress.org/reference/functions/get_user_meta/>`__.
 
 .. _header-n38:
 
-Add 
+Add
 ^^^^
 
-.. code:: php
+.. code-block:: php
 
    add_user_meta(
        int $user_id,
@@ -204,18 +188,15 @@ Add
    );
 
 Please refer to the Function Reference about
-`add\ user\ meta() <https://developer.wordpress.org/reference/functions/add_user_meta/>`__
+`add_user_meta() <https://developer.wordpress.org/reference/functions/add_user_meta/>`__
 for full explanation about the used parameters.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
 
 .. _header-n42:
 
-Update 
+Update
 ^^^^^^^
 
-.. code:: php
+.. code-block:: php
 
    update_user_meta(
        int $user_id,
@@ -225,18 +206,15 @@ Update
    );
 
 Please refer to the Function Reference about
-`update\ user\ meta() <https://developer.wordpress.org/reference/functions/update_user_meta/>`__
+`update_user_meta() <https://developer.wordpress.org/reference/functions/update_user_meta/>`__
 for full explanation about the used parameters.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
 
 .. _header-n46:
 
-Delete 
+Delete
 ^^^^^^^
 
-.. code:: php
+.. code-block:: php
 
    delete_user_meta(
        int $user_id,
@@ -245,18 +223,15 @@ Delete
    );
 
 Please refer to the Function Reference about
-`delete\ user\ meta() <https://developer.wordpress.org/reference/functions/delete_user_meta/>`__
+`delete_user_meta() <https://developer.wordpress.org/reference/functions/delete_user_meta/>`__
 for full explanation about the used parameters.
-
-`Top
-↑ <https://developer.wordpress.org/plugins/users/working-with-user-metadata/#top>`__
 
 .. _header-n50:
 
-Get 
+Get
 ^^^^
 
-.. code:: php
+.. code-block:: php
 
    get_user_meta(
        int $user_id,
@@ -265,7 +240,7 @@ Get
    );
 
 Please refer to the Function Reference about
-`get\ user\ meta() <https://developer.wordpress.org/reference/functions/get_user_meta/>`__
+`get_user_meta() <https://developer.wordpress.org/reference/functions/get_user_meta/>`__
 for full explanation about the used parameters.
 
 Please note, if you pass only the $user_id, the function will retrieve
