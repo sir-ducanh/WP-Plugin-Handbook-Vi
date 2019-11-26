@@ -15,7 +15,7 @@ post or rendering a video.
 
 .. _header-n5:
 
-Why Shortcodes? 
+Why Shortcodes?
 ----------------
 
 Shortcodes are a valuable way of keeping content clean and semantic
@@ -33,8 +33,6 @@ Advantages:
 
 -  Shortcodes can also accept parameters, allowing users to modify how
    the shortcode behaves on an instance by instance basis.
-
-`Top ↑ <https://developer.wordpress.org/plugins/shortcodes/#top>`__
 
 .. _header-n15:
 
@@ -57,21 +55,16 @@ By default, WordPress includes the following shortcodes:
 
 -  ``[embed]`` – shortcode that allows you to wrap embedded items
 
-`Top ↑ <https://developer.wordpress.org/plugins/shortcodes/#top>`__
-
 .. _header-n31:
 
-Shortcode Best Practices 
+Shortcode Best Practices
 -------------------------
 
-Best practices for developing shortcodes include the `plugin development
-best
-practices <https://developer.wordpress.org/plugins/the-basics/best-practices/>`__
-and the list below:
+Best practices for developing shortcodes include the :ref:`plugin development
+best practices <best-practices>` and the list below:
 
 -  | **Always return!**
-   | Shortcodes are essentially filters, so creating “\ `side
-     effects <https://en.wikipedia.org/wiki/Side_effect_(computer_science)>`__\ ”
+   | Shortcodes are essentially filters, so creating “`side effects <https://en.wikipedia.org/wiki/Side_effect_(computer_science)>`__”
      will lead to unexpected bugs.
 
 -  Prefix your shortcode names to avoid collisions with other plugins.
@@ -80,24 +73,18 @@ and the list below:
 
 -  Provide users with clear documentation on all shortcode attributes.
 
-`Top ↑ <https://developer.wordpress.org/plugins/shortcodes/#top>`__
+:ref:`Top ↑ <shortcodes>`
 
 .. _header-n43:
 
-Quick Reference 
+Quick Reference
 ----------------
 
-See the complete example of using a `basic shortcode structure, taking
-care of self-closing and enclosing scenarios, shortcodes within
-shortcodes and securing
-output <https://developer.wordpress.org/plugins/shortcodes/shortcodes-with-parameters/#complete-example>`__.
-
-`Top ↑ <https://developer.wordpress.org/plugins/shortcodes/#top>`__
+See the complete example of using a `basic shortcode structure, taking care of self-closing and enclosing scenarios, shortcodes within shortcodes and securing output <https://developer.wordpress.org/plugins/shortcodes/shortcodes-with-parameters/#complete-example>`__.
 
 .. _header-n46:
 
-External Resources 
+External Resources
 -------------------
 
--  `WordPress Shortcodes
-   Generator <http://generatewp.com/shortcodes/>`__
+-  `WordPress Shortcodes Generator <http://generatewp.com/shortcodes/>`__
