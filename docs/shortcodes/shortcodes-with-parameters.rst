@@ -5,16 +5,14 @@ Shortcodes with Parameters
 
 .. contents::
 
-Now that we know how to create a `basic
-shortcode <https://developer.wordpress.org/plugins/shortcodes/basic-shortcodes/>`__
-and how to use it as `self-closing and
-enclosing <https://developer.wordpress.org/plugins/shortcodes/enclosing-shortcodes/>`__,
+Now that we know how to create a :ref:`basic shortcode <basic-shortcodes>`
+and how to use it as :ref:`self-closing and enclosing <enclosing-shortcodes>`,
 we will look at using parameters in shortcode ``[$tag]`` and handler
 function.
 
 Shortcode ``[$tag]`` can accept parameters, known as attributes:
 
-.. code:: php
+.. code-block:: php
 
    [wporg title="WordPress.org"]
    Having fun with WordPress.org shortcodes.
@@ -29,13 +27,13 @@ Shortcode handler function can accept 3 parameters:
 -  ``$tag`` – string – the name of the [$tag] (i.e. the name of the
    shortcode)
 
-.. code:: php
+.. code-block:: php
 
    function wporg_shortcode($atts = [], $content = null, $tag = '') {}
 
 .. _header-n15:
 
-Parsing Attributes 
+Parsing Attributes
 -------------------
 
 For the user, shortcodes are just strings with square brackets inside
@@ -51,22 +49,19 @@ To gain control of how the shortcodes are used:
 
 -  Performing normalization of the key case for the attributes array
    with
-   `array\ change\ key_case() <http://php.net/manual/en/function.array-change-key-case.php>`__
+   `array_change_key_case() <http://php.net/manual/en/function.array-change-key-case.php>`__
 
 -  Parse attributes using
    `shortcode_atts() <https://developer.wordpress.org/reference/functions/shortcode_atts/>`__
    providing default values array and user ``$atts``
 
--  `Secure the
-   output <https://developer.wordpress.org/plugins/security/securing-output/>`__
-   before returning it
+-  :ref:`Secure the output <securing-output>` before returning it
 
-`Top
-↑ <https://developer.wordpress.org/plugins/shortcodes/shortcodes-with-parameters/#top>`__
+:ref:`Top ↑ <shortcodes-with-parameters>`
 
 .. _header-n29:
 
-Complete Example 
+Complete Example
 -----------------
 
 Complete example using a basic shortcode structure, taking care of
@@ -76,47 +71,47 @@ securing output.
 A [wporg] shortcode that will accept a title and will display a box that
 we can style with CSS.
 
-.. code:: php
+.. code-block:: php
 
    <?php
    function wporg_shortcode($atts = [], $content = null, $tag = '')
    {
        // normalize attribute keys, lowercase
        $atts = array_change_key_case((array)$atts, CASE_LOWER);
-    
+
        // override default attributes with user attributes
        $wporg_atts = shortcode_atts([
                                         'title' => 'WordPress.org',
                                     ], $atts, $tag);
-    
+
        // start output
        $o = '';
-    
+
        // start box
        $o .= '<div class="wporg-box">';
-    
+
        // title
        $o .= '<h2>' . esc_html__($wporg_atts['title'], 'wporg') . '</h2>';
-    
+
        // enclosing tags
        if (!is_null($content)) {
            // secure output by executing the_content filter hook on $content
            $o .= apply_filters('the_content', $content);
-    
+
            // run shortcode parser recursively
            $o .= do_shortcode($content);
        }
-    
+
        // end box
        $o .= '</div>';
-    
+
        // return output
        return $o;
    }
-    
+
    function wporg_shortcodes_init()
    {
        add_shortcode('wporg', 'wporg_shortcode');
    }
-    
+
    add_action('init', 'wporg_shortcodes_init');
