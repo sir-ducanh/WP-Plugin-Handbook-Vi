@@ -14,10 +14,11 @@ given file or directory lives. Always use these functions in your
 plugins instead of hard-coding references to the wp-content directory or
 using the WordPress internal constants.
 
-Tip:WordPress allows users to place their wp-content directory anywhere
-they want and rename it whatever they want. Never assume that plugins
-will be in wp-content/plugins, uploads will be in wp-content/uploads, or
-that themes will be in wp-content/themes.
+.. tip::
+  WordPress allows users to place their wp-content directory anywhere
+  they want and rename it whatever they want. Never assume that plugins
+  will be in wp-content/plugins, uploads will be in wp-content/uploads, or
+  that themes will be in wp-content/themes.
 
 PHP’s ``__FILE__`` magic-constant resolves symlinks automatically, so if
 the ``wp-content`` or ``wp-content/plugins`` or even the individual
