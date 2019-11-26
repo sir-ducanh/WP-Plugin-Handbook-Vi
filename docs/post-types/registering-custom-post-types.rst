@@ -22,8 +22,7 @@ function.
 
 .. warning::
 
-	 We recommend that you put custom post types in a plugin
-   rather than a theme. This ensures that user content remains portable
+	 We recommend that you put custom post types in a plugin rather than a theme. This ensures that user content remains portable
    even if they change their theme.
 
 The following example registers a new post type, Products, which is
@@ -52,8 +51,7 @@ for the description of arguments.
 
 .. warning::
 
-	   You must call `register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__
-     before the ``admin_init`` and after the ``after_setup_theme``
+	   You must call `register_post_type() <https://developer.wordpress.org/reference/functions/register_post_type/>`__ before the ``admin_init`` and after the ``after_setup_theme``
      action hooks. A good hook to use is the ``init`` action hook.
 
 .. _header-n19:
@@ -66,8 +64,7 @@ with a short prefix that corresponds to your plugin, theme, or website.
 
 .. warning::
 
-	     **To ensure forward compatibility**, do not use **wp_**
-       as your identifier — it is being used by WordPress core.
+	     **To ensure forward compatibility**, do not use **wp_** as your identifier — it is being used by WordPress core.
 
        **Make sure your custom post type identifier does not exceed 20
        characters** as the ``post_type`` column in the database is
